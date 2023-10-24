@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "288566318004",
+    "firebase_url": "https://mediphix-default-rtdb.firebaseio.com",
+    "project_id": "mediphix",
+    "storage_bucket": "mediphix.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288566318004:android:186a228dde45a51c4958e1",
+        "android_client_info": {
+          "package_name": "com.example.mediphix_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArGQYN00zDifKCXXIe-fQ_oeftMTTj3qM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

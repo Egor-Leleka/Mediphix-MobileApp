@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.mediphix_app.Login"
+        android:label="login_page"
+        tools:layout="@layout/login_page" >
+        <action
+            android:id="@+id/loginAction"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/loginToRegister"
+            app:destination="@id/register" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.mediphix_app.Register"
+        android:label="register_page"
+        tools:layout="@layout/register_page" />
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.mediphix_app.Home"
+        android:label="home_page"
+        tools:layout="@layout/home_page" />
+</navigation>
