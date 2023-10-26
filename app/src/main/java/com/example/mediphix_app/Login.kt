@@ -64,7 +64,7 @@ class Login : Fragment(R.layout.login_page) {
                 val firstName = it.child("firstName").value
 
                 database.child(pass).get().addOnSuccessListener {
-                    if (it.exists() && pass == password) {
+                    if (pass == password) {
                         // Success
                         Toast.makeText(requireContext(), "Successfully Logged-In", Toast.LENGTH_SHORT).show()
 
