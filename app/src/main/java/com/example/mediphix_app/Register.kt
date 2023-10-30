@@ -61,8 +61,6 @@ class Register : Fragment(R.layout.register_page) {
                     // Success message
                     Toast.makeText(requireContext(), "Nurse successfully saved", Toast.LENGTH_SHORT).show()
 
-
-
                 }.addOnFailureListener {
 
                     // Failure message

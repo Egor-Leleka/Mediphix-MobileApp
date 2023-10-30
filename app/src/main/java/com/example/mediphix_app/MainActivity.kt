@@ -44,6 +44,10 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.visibility = View.GONE
     }
 
+    override fun onBackPressed() {
+        // Leave blank util we have a use for the back button
+    }
+
     fun navigateToHomePage() {
         // Sets the bottom nav to visible
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
