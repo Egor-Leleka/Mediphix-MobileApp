@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mediphix_app.databinding.LoginPageBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -67,6 +68,9 @@ class Login : Fragment(R.layout.login_page) {
                     if (pass == password) {
                         // Success
                         Toast.makeText(requireContext(), "Successfully Logged-In", Toast.LENGTH_SHORT).show()
+
+                        val mainActivity = activity as? MainActivity
+                        mainActivity?.navigateToHomePage()
 
                         // Use NavController to navigate to the next destination
                         val action = LoginDirections.loginAction()

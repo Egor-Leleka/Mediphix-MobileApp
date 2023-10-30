@@ -7,6 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class Home : Fragment(R.layout.home_page) {
+class NewDrug : Fragment(R.layout.add_new_drug_page) {
 
 }

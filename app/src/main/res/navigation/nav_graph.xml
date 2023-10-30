@@ -22,11 +22,25 @@
         android:id="@+id/register"
         android:name="com.example.mediphix_app.Register"
         android:label="register_page"
-        tools:layout="@layout/register_page" />
+        tools:layout="@layout/register_page" >
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/login" />
+    </fragment>
 
     <fragment
         android:id="@+id/home"
         android:name="com.example.mediphix_app.Home"
         android:label="home_page"
         tools:layout="@layout/home_page" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.mediphix_app.Profile"
+        android:label="profile_page"
+        tools:layout="@layout/profile_page" />
+    <fragment
+        android:id="@+id/newDrug"
+        android:name="com.example.mediphix_app.NewDrug"
+        android:label="add_new_drug_page"
+        tools:layout="@layout/add_new_drug_page" />
 </navigation>

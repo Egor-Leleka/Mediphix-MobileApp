@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.mediphix_app.databinding.RegisterPageBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -26,6 +27,11 @@ class Register : Fragment(R.layout.register_page) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.loginBtn.setOnClickListener {
+            val action = RegisterDirections.actionRegisterToLogin()
+            findNavController().navigate(action)
+        }
 
         // bind the register button
         binding.registerBtn.setOnClickListener {
@@ -54,6 +60,8 @@ class Register : Fragment(R.layout.register_page) {
 
                     // Success message
                     Toast.makeText(requireContext(), "Nurse successfully saved", Toast.LENGTH_SHORT).show()
+
+
 
                 }.addOnFailureListener {
 
