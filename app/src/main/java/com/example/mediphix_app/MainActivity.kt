@@ -6,7 +6,9 @@ import android.view.View
 import android.view.View.GONE
 import android.widget.Toast
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -45,7 +47,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        // Leave blank util we have a use for the back button
+        // Back button always navigates to home page
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
+
+        if (bottomNavigationView.visibility == View.VISIBLE) {
+            val action = NavGraphDirections.actionGlobalHome()
+            findNavController(R.id.nav_host_fragment).navigate(action)
+        }
     }
 
     fun navigateToHomePage() {

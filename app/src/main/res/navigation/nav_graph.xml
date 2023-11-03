@@ -32,7 +32,20 @@
         android:id="@+id/home"
         android:name="com.example.mediphix_app.Home"
         android:label="home_page"
-        tools:layout="@layout/home_page" />
+        tools:layout="@layout/home_page" >
+        <action
+            android:id="@+id/action_home_to_drugCheck"
+            app:destination="@id/drugCheck" />
+        <action
+            android:id="@+id/action_home_to_listOfDrugs"
+            app:destination="@id/listOfDrugs" />
+        <action
+            android:id="@+id/action_home_to_disposedDrugs"
+            app:destination="@id/disposedDrugs" />
+        <action
+            android:id="@+id/action_home_to_manageChecks"
+            app:destination="@id/manageChecks" />
+    </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="com.example.mediphix_app.Profile"
@@ -43,4 +56,31 @@
         android:name="com.example.mediphix_app.NewDrug"
         android:label="add_new_drug_page"
         tools:layout="@layout/add_new_drug_page" />
+    <fragment
+        android:id="@+id/drugCheck"
+        android:name="com.example.mediphix_app.DrugCheck"
+        android:label="drug_check_page"
+        tools:layout="@layout/drug_check_page" />
+
+    <action
+        android:id="@+id/action_global_home"
+        app:destination="@id/home"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/listOfDrugs"
+        android:name="com.example.mediphix_app.ListOfDrugs"
+        android:label="list_of_drugs_page"
+        tools:layout="@layout/list_of_drugs_page" />
+    <fragment
+        android:id="@+id/disposedDrugs"
+        android:name="com.example.mediphix_app.DisposedDrugs"
+        android:label="disposed_drugs_page"
+        tools:layout="@layout/disposed_drugs_page" />
+    <fragment
+        android:id="@+id/manageChecks"
+        android:name="com.example.mediphix_app.ManageChecks"
+        android:label="manage_checks_page"
+        tools:layout="@layout/manage_checks_page" />
 </navigation>
