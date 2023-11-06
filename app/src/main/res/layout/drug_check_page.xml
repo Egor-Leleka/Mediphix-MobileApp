@@ -14,8 +14,8 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
-            android:text="Drug Check page"
+            android:layout_marginTop="100dp"
+            android:text="Drug Check"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -23,6 +23,40 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- List of Drugs Button -->
+        <Button
+            android:id="@+id/knoxWingDrugRoomBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="Knox Wing Drug Room"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <!-- Disposed Drugs Button -->
+        <Button
+            android:id="@+id/dayStayNursesStationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Day Station Nurses Station"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/knoxWingDrugRoomBtn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <!-- Manage Checks Button -->
+        <Button
+            android:id="@+id/wardOfficeNursesStationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ward Office Nurses Station"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/dayStayNursesStationBtn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

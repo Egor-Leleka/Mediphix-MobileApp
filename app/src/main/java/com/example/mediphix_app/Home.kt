@@ -43,5 +43,10 @@ class Home : Fragment(R.layout.home_page) {
             val action = HomeDirections.actionHomeToManageChecks()
             findNavController().navigate(action)
         }
+
+        binding.manageChecksBtn.setOnClickListener {
+            val action = HomeDirections.actionHomeToAboutMediphix()
+            findNavController().navigate(action)
+        }
     }
 }

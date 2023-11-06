@@ -45,12 +45,19 @@
         <action
             android:id="@+id/action_home_to_manageChecks"
             app:destination="@id/manageChecks" />
+        <action
+            android:id="@+id/action_home_to_aboutMediphix"
+            app:destination="@id/aboutMediphix" />
     </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="com.example.mediphix_app.Profile"
         android:label="profile_page"
-        tools:layout="@layout/profile_page" />
+        tools:layout="@layout/profile_page" >
+        <action
+            android:id="@+id/action_profile_to_checkHistory"
+            app:destination="@id/checkHistory" />
+    </fragment>
     <fragment
         android:id="@+id/newDrug"
         android:name="com.example.mediphix_app.NewDrug"
@@ -83,4 +90,14 @@
         android:name="com.example.mediphix_app.ManageChecks"
         android:label="manage_checks_page"
         tools:layout="@layout/manage_checks_page" />
+    <fragment
+        android:id="@+id/aboutMediphix"
+        android:name="com.example.mediphix_app.AboutMediphix"
+        android:label="about_mediphix"
+        tools:layout="@layout/about_mediphix" />
+    <fragment
+        android:id="@+id/checkHistory"
+        android:name="com.example.mediphix_app.CheckHistory"
+        android:label="check_history_page"
+        tools:layout="@layout/check_history_page" />
 </navigation>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dropdown_options">
+        <item>Storage Location</item>
+        <item>Knox Wing</item>
+        <item>Ward Office</item>
+        <item>Day Stay</item>
+    </string-array>
+
+    <string-array name="filter_sort_options">
+        <item>All</item>
+        <item>Red Sticker</item>
+        <item>Expired</item>
+        <item>Simple</item>
+        <item>Controlled</item>
+    </string-array>
+</resources>

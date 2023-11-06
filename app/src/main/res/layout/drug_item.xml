@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/drugLabelImageView"
+            android:layout_width="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:src="@drawable/ic_red_label" />
+
+
+        <TextView
+            android:id="@+id/drug_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/drugLabelImageView"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            tools:text="Drug Name" />
+
+        <TextView
+            android:id="@+id/drug_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/drug_name"
+            android:layout_toEndOf="@id/drugLabelImageView"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Drug Number" />
+
+        <TextView
+            android:id="@+id/drug_type"
+            android:layout_width="125sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/drug_number"
+            android:layout_toEndOf="@id/drugLabelImageView"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingTop="2dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Drug Type" />
+
+        <TextView
+            android:id="@+id/drug_expiry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/drug_name"
+            android:layout_toEndOf="@id/drug_type"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingTop="2dp"
+            android:paddingBottom="3dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="75dp"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            tools:text="Drug Expiry" />
+
+
+    </RelativeLayout>
+</LinearLayout>
