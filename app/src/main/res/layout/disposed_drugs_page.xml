@@ -14,15 +14,46 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
-            android:text="Disposed Drugs page"
+            android:layout_marginTop="60dp"
+            android:text="DISPOSED DRUGS"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.195"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_drugs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <ImageView
+            android:id="@+id/filterImageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="48dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:src="@drawable/ic_filter"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <Spinner
+            android:id="@+id/filterDDL"
+            android:layout_width="14dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="84dp"
+            android:entries="@array/disposed_filter_sort_options"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

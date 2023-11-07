@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mediphix_app.databinding.ProfilePageBinding
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class Profile : Fragment(R.layout.profile_page) {
@@ -15,7 +14,6 @@ class Profile : Fragment(R.layout.profile_page) {
 
     // Firebase reference
     private val databaseReference = FirebaseDatabase.getInstance().getReference("Nurses")
-    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

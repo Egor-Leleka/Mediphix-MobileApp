@@ -14,4 +14,10 @@
         <item>Simple</item>
         <item>Controlled</item>
     </string-array>
+
+    <string-array name="disposed_filter_sort_options">
+        <item>All</item>
+        <item>Simple</item>
+        <item>Controlled</item>
+    </string-array>
 </resources>

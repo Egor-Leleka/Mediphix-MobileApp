@@ -67,7 +67,11 @@
         android:id="@+id/drugCheck"
         android:name="com.example.mediphix_app.DrugCheck"
         android:label="drug_check_page"
-        tools:layout="@layout/drug_check_page" />
+        tools:layout="@layout/drug_check_page" >
+        <action
+            android:id="@+id/action_drugCheck_to_drugCheckRoom"
+            app:destination="@id/drugCheckRoom" />
+    </fragment>
 
     <action
         android:id="@+id/action_global_home"
@@ -100,4 +104,23 @@
         android:name="com.example.mediphix_app.CheckHistory"
         android:label="check_history_page"
         tools:layout="@layout/check_history_page" />
+    <fragment
+        android:id="@+id/drugCheckRoom"
+        android:name="com.example.mediphix_app.DrugCheckRoom"
+        android:label="DrugCheckRoom" >
+        <action
+            android:id="@+id/action_drugCheckRoom_to_drugCheckFinalize"
+            app:destination="@id/drugCheckFinalize" />
+        <action
+            android:id="@+id/action_drugCheckRoom_to_drugCheck"
+            app:destination="@id/drugCheck" />
+    </fragment>
+    <fragment
+        android:id="@+id/drugCheckFinalize"
+        android:name="com.example.mediphix_app.DrugCheckFinalize"
+        android:label="DrugCheckFinalize" >
+        <action
+            android:id="@+id/action_drugCheckFinalize_to_drugCheckRoom"
+            app:destination="@id/drugCheckRoom" />
+    </fragment>
 </navigation>

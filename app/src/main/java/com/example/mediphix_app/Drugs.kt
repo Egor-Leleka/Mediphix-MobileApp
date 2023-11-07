@@ -6,5 +6,5 @@ data class Drugs(val name : String? = null,
                  val securityType : String? = null,
                  val storageLocation: String? = null,
                  val expiryDate: String? = null,
-                 val drugLabel: Long = 1 // 1 = No Label, 2 = Red Sticker, 3 = Removed/Disposed/Expired
+                 var drugLabel: Long = 1 // 1 = No Label, 2 = Red Sticker, 3 = Removed/Disposed/Expired
 ){}

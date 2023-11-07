@@ -7,9 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mediphix_app.Drugs
+import com.example.mediphix_app.MedTrack
 import com.example.mediphix_app.R
+import java.text.SimpleDateFormat
+import java.util.*
 
-class DrugsAdapter (private var drugList: MutableList<Drugs>) : RecyclerView.Adapter<DrugsAdapter.ViewHolder>()  {
+class DrugsAdapter (private var drugList: MutableList<Drugs>, private var isDrugCheckRoom: Boolean = false) : RecyclerView.Adapter<DrugsAdapter.ViewHolder>()  {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val drugName: TextView = itemView.findViewById(R.id.drug_name)
@@ -25,10 +28,44 @@ class DrugsAdapter (private var drugList: MutableList<Drugs>) : RecyclerView.Ada
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentDrugInfo = drugList[position]
+
         holder.drugName.text = currentDrugInfo.name.toString().uppercase()
         holder.drugType.text = "TYPE: " + currentDrugInfo.drugType
         holder.drugId.text = "ID: " + currentDrugInfo.id;
         holder.drugExpiry.text = currentDrugInfo.expiryDate
+
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val currentDate: Date = sdf.parse(sdf.format(Date()))!!
+        val calendar = Calendar.getInstance()
+        calendar.time = currentDate
+        calendar.add(Calendar.DAY_OF_YEAR, 30)
+        val futureDate: Date = calendar.time
+        val expiredDate: Date = sdf.parse(currentDrugInfo.expiryDate)!!
+
+        /*
+        if(isDrugCheckRoom) {
+            if(expiredDate.before(currentDate)){
+                holder.drugLabel.setImageResource(R.drawable.ic_dispose)
+
+            }
+            else if(expiredDate.after(futureDate)){
+                holder.drugLabel.setImageResource(R.drawable.ic_no_icon)
+            }
+            else {
+                holder.drugLabel.setImageResource(R.drawable.ic_red_label)
+            }
+        }
+        else {
+            if(currentDrugInfo.drugLabel.toString() == "1"){ // Drug Label == 1 is for no marking
+            holder.drugLabel.setImageResource(R.drawable.ic_no_icon)
+        }
+        else if (currentDrugInfo.drugLabel.toString() == "2"){ // Drug Label == 2 is for Red label marking
+            holder.drugLabel.setImageResource(R.drawable.ic_red_label)
+        }
+        else if (currentDrugInfo.drugLabel.toString() == "3"){ // Drug Label == 3 is for Dispose/Expired label marking
+            holder.drugLabel.setImageResource(R.drawable.ic_dispose)
+        }
+        }*/
 
         if(currentDrugInfo.drugLabel.toString() == "1"){ // Drug Label == 1 is for no marking
             holder.drugLabel.setImageResource(R.drawable.ic_no_icon)
@@ -39,20 +76,6 @@ class DrugsAdapter (private var drugList: MutableList<Drugs>) : RecyclerView.Ada
         else if (currentDrugInfo.drugLabel.toString() == "3"){ // Drug Label == 3 is for Dispose/Expired label marking
             holder.drugLabel.setImageResource(R.drawable.ic_dispose)
         }
-
-        /*
-        val expiredDateString = "Expired Date: ${currentDrugInfo.expiredDate}"
-        holder.expiredDateTextView.text = expiredDateString
-
-        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        val expiredDate: Date = sdf.parse(currentDrugInfo.expiredDate)!!
-        val currentDate: Date = sdf.parse(sdf.format(Date()))!!
-
-        if (expiredDate.before(currentDate)) {
-            holder.expiredDateTextView.setTextColor(android.graphics.Color.RED)
-        } else {
-            holder.expiredDateTextView.setTextColor(android.graphics.Color.GRAY)
-        }*/
     }
 
     fun updateList(newList: MutableList<Drugs>) {

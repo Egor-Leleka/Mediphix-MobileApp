@@ -69,6 +69,7 @@ class Login : Fragment(R.layout.login_page) {
                     if (pass == password) {
                         // Success
                         Toast.makeText(requireContext(), "Successfully Logged-In", Toast.LENGTH_SHORT).show()
+
                         val nurseApp = requireActivity().application as MedTrack
                         nurseApp.currentNurseDetail = Nurses(firstName.toString(), lastName.toString(), regNumber.toString())
 
