@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="141dp"
+        android:padding="8dp">
+
+
+        <TextView
+            android:id="@+id/checkDate"
+            android:layout_width="190sp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Check Date :" />
+
+        <TextView
+            android:id="@+id/storageLocation"
+            android:layout_width="220sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkDate"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Storage Location :" />
+
+        <TextView
+            android:id="@+id/nurseName"
+            android:layout_width="190sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/storageLocation"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Done by :" />
+
+        <TextView
+            android:id="@+id/drugList"
+            android:layout_width="190sp"
+            android:layout_height="190sp"
+            android:layout_below="@+id/nurseName"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Drug List :" />
+
+        <TextView
+            android:id="@+id/regNo"
+            android:layout_width="190sp"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="39dp"
+            android:layout_toEndOf="@+id/nurseName"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Reg. No :" />
+
+
+    </RelativeLayout>
+</LinearLayout>
