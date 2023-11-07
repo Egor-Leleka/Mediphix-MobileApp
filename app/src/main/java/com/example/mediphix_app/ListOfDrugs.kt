@@ -39,7 +39,11 @@ class ListOfDrugs : Fragment(R.layout.list_of_drugs_page) {
 
         database = FirebaseDatabase.getInstance().getReference("Drugs")
 
-        adapter = DrugsAdapter(drugList)
+        adapter = DrugsAdapter(drugList, false, object : DrugsAdapter.OnDrugClickListener {
+            override fun onDrugClick(markedDrugList: MutableList<Drugs>) {
+                // Do nothing here
+            }
+        })
         binding.recyclerViewDrugs.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewDrugs.adapter = adapter
 

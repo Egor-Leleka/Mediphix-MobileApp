@@ -43,13 +43,21 @@ class DrugCheckRoom : Fragment(R.layout.drug_check_room_page) {
         }
 
         binding.backBtn.setOnClickListener {
+            val medTrack = requireActivity().application as MedTrack
+            medTrack.roomDrugList.clear()
             val action = DrugCheckRoomDirections.actionDrugCheckRoomToDrugCheck()
             findNavController().navigate(action)
         }
 
         database = FirebaseDatabase.getInstance().getReference("Drugs")
 
-        adapter = DrugsAdapter(drugList, true)
+        adapter = DrugsAdapter(drugList, true, object : DrugsAdapter.OnDrugClickListener {
+            override fun onDrugClick(markedDrugList: MutableList<Drugs>) {
+                // Call the function in ListOfDrugs from here
+                updateRoomDrugList(markedDrugList)
+            }
+        })
+
         binding.recyclerViewRoomDrugs.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewRoomDrugs.adapter = adapter
 
@@ -85,6 +93,11 @@ class DrugCheckRoom : Fragment(R.layout.drug_check_room_page) {
             }
         })
         return root
+    }
+
+    private fun updateRoomDrugList(markedDrugList: MutableList<Drugs>) {
+        val medTrack = requireActivity().application as MedTrack
+        medTrack.roomDrugList = markedDrugList
     }
 
     private fun defaultSortFilterDrugList() {

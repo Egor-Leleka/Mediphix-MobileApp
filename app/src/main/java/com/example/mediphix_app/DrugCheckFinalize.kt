@@ -39,11 +39,21 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
 
         database = FirebaseDatabase.getInstance().getReference("Drugs")
 
-        redStickerDrugAdapter = DrugsAdapter(drugList)
+        redStickerDrugAdapter = DrugsAdapter(drugList, false, object : DrugsAdapter.OnDrugClickListener {
+            override fun onDrugClick(markedDrugList: MutableList<Drugs>) {
+                // Call the function in ListOfDrugs from here
+                //doSomethingWithDrug(drug)
+                Toast.makeText(requireContext(), "Failed", Toast.LENGTH_LONG).show()
+            }
+        })
         binding.recyclerViewFinalizeRoomDrugs1.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewFinalizeRoomDrugs1.adapter = redStickerDrugAdapter
 
-        removedDrugAdapter = DrugsAdapter(drugList)
+        removedDrugAdapter = DrugsAdapter(drugList, false, object : DrugsAdapter.OnDrugClickListener {
+            override fun onDrugClick(markedDrugList: MutableList<Drugs>) {
+                // Do nothing here
+            }
+        })
         binding.recyclerViewFinalizeRoomDrugs2.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewFinalizeRoomDrugs2.adapter = removedDrugAdapter
 

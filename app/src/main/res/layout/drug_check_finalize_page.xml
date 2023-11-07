@@ -14,7 +14,7 @@
             android:id="@+id/room_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="DRUG CHECK: "
             android:textColor="@color/black"
             android:textSize="30sp"
@@ -28,16 +28,15 @@
             android:id="@+id/red_sticker_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="88dp"
             android:text="RED STICKER: "
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/recycler_view_finalize_room_drugs_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/room_name"
+            app:layout_constraintVertical_bias="0.692" />
 
         <TextView
             android:id="@+id/Removed_textView"
@@ -45,14 +44,27 @@
             android:layout_height="wrap_content"
             android:text="REMOVED: "
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/recycler_view_finalize_room_drugs_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_finalize_room_drugs_1"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_finalize_room_drugs_1" />
+
+        <TextView
+            android:id="@+id/nurseFullName_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="NURSE NAME: "
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkPerformed_textView" />
 
         <TextView
             android:id="@+id/checkPerformed_textView"
@@ -61,7 +73,7 @@
             android:layout_marginTop="8dp"
             android:text="CHECK PERFORMED BY: "
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -69,47 +81,34 @@
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_finalize_room_drugs_2" />
 
         <TextView
-            android:id="@+id/nurseFullName_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="NURSE NAME: "
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkPerformed_textView" />
-
-        <TextView
             android:id="@+id/nurseRegNo_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:text="REG NO.: "
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nurseFullName_textView" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_finalize_room_drugs_1"
             android:layout_width="match_parent"
-            android:layout_height="156dp"
-            android:layout_marginTop="44dp"
+            android:layout_height="194dp"
+            android:layout_marginTop="52dp"
             app:layout_constraintTop_toBottomOf="@+id/room_name"
             tools:layout_editor_absoluteX="0dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_finalize_room_drugs_2"
             android:layout_width="match_parent"
-            android:layout_height="156dp"
-            android:layout_marginTop="240dp"
+            android:layout_height="196dp"
+            android:layout_marginTop="280dp"
             app:layout_constraintTop_toBottomOf="@+id/room_name"
-            tools:layout_editor_absoluteX="0dp" />
+            tools:layout_editor_absoluteX="-2dp" />
 
         <Button
             android:id="@+id/backBtn"
@@ -131,7 +130,7 @@
             android:layout_height="66dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="72dp"
-            android:layout_marginTop="628dp"
+            android:layout_marginTop="660dp"
             android:backgroundTint="#018958"
             android:text="SAVE"
             app:layout_constraintEnd_toEndOf="parent"

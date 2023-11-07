@@ -3,20 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="5dp">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="2dp">
 
         <ImageView
             android:id="@+id/drugLabelImageView"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="10dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:minWidth="0dp"
             android:minHeight="0dp"
@@ -30,7 +29,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/black"
-            android:textSize="25dp"
+            android:textSize="20dp"
             tools:text="Drug Name" />
 
         <TextView
@@ -74,11 +73,22 @@
             android:paddingTop="2dp"
             android:paddingBottom="3dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="75dp"
+            android:layout_marginLeft="50dp"
             android:textColor="@color/black"
-            android:textSize="22sp"
+            android:textSize="18sp"
             tools:text="Drug Expiry" />
 
+        <Button
+            android:id="@+id/spinner_drug_item"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_below="@+id/drug_name"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="-29dp"
+            android:layout_marginEnd="3dp"
+            android:background="@android:color/transparent" />
 
     </RelativeLayout>
 </LinearLayout>
