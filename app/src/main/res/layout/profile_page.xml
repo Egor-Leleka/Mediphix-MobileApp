@@ -47,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/drugSecurity"
+            android:id="@+id/regNumber"
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
@@ -57,10 +57,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
         <EditText
-            android:id="@+id/DrugName"
+            android:id="@+id/firstName"
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_marginTop="228dp"
@@ -86,7 +86,7 @@
             app:layout_constraintVertical_bias="0.594" />
 
         <EditText
-            android:id="@+id/idNumber"
+            android:id="@+id/lastName"
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
@@ -96,7 +96,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DrugName" />
+            app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
         <TextView
             android:id="@+id/textView4"

@@ -7,9 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mediphix_app.databinding.ProfilePageBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class Profile : Fragment(R.layout.profile_page) {
     private lateinit var binding: ProfilePageBinding
+
+    // Firebase reference
+    private val databaseReference = FirebaseDatabase.getInstance().getReference("Nurses")
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +32,20 @@ class Profile : Fragment(R.layout.profile_page) {
         binding.checkHistoryBtn.setOnClickListener {
             val action = ProfileDirections.actionProfileToCheckHistory()
             findNavController().navigate(action)
+        }
+
+        // Fetch the profile data for the currently logged-in user
+        val nurseApp = requireActivity().application as MedTrack
+        val currentNurse = nurseApp.currentNurseDetail
+
+        if (currentNurse != null) {
+            binding.firstName.setText(currentNurse.firstName.toString().uppercase())
+        }
+        if (currentNurse != null) {
+            binding.lastName.setText(currentNurse.lastName.toString().uppercase())
+        }
+        if (currentNurse != null) {
+            binding.regNumber.setText(currentNurse.regNumber.toString().uppercase())
         }
     }
 }

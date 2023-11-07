@@ -63,11 +63,14 @@ class Login : Fragment(R.layout.login_page) {
                 val regNumber = it.child("regNumber").value
                 val password = it.child("password").value
                 val firstName = it.child("firstName").value
+                val lastName = it.child("lastName").value
 
                 database.child(pass).get().addOnSuccessListener {
                     if (pass == password) {
                         // Success
                         Toast.makeText(requireContext(), "Successfully Logged-In", Toast.LENGTH_SHORT).show()
+                        val nurseApp = requireActivity().application as MedTrack
+                        nurseApp.currentNurseDetail = Nurses(firstName.toString(), lastName.toString(), regNumber.toString())
 
                         val mainActivity = activity as? MainActivity
                         mainActivity?.navigateToHomePage()
