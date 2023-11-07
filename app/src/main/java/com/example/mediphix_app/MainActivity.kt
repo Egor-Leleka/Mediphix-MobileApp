@@ -44,9 +44,16 @@ class MainActivity : AppCompatActivity() {
         // Back button always navigates to home page
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
 
-        if (bottomNavigationView.visibility == View.VISIBLE) {
+        val navController = findNavController(R.id.nav_host_fragment)
+
+        if (navController.currentDestination?.id == R.id.login) {
+            return
+        }else if (bottomNavigationView.visibility == View.VISIBLE) {
             val action = NavGraphDirections.actionGlobalHome()
             findNavController(R.id.nav_host_fragment).navigate(action)
+        } else {
+            // If on the home fragment, navigate to the home fragment using the back stack
+            navController.popBackStack()
         }
     }
 
