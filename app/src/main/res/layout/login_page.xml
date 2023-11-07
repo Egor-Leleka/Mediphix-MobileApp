@@ -46,15 +46,27 @@
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="360dp"
+            android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="64dp"
             android:background="@drawable/input"
             android:hint="Password"
             android:paddingLeft="20dp"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/regNumber" />
+
+
+        <ToggleButton
+            android:id="@+id/togglePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="Show"
+            android:textOn="Hide"
+            android:checked="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/password" />
 
         <Button
             android:id="@+id/loginBtn"

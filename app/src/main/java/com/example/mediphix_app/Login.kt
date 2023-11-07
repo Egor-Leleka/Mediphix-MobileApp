@@ -1,6 +1,7 @@
 package com.example.mediphix_app
 
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,21 @@ class Login : Fragment(R.layout.login_page) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Toggle password visibility
+        val passwordEditText = binding.password
+        val togglePasswordButton = binding.togglePassword
+
+        togglePasswordButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // Show password
+                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            } else {
+                // Hide password
+                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+        }
+
+        // Register Button Start
         binding.registerBtn.setOnClickListener {
             val action = LoginDirections.loginToRegister()
             findNavController().navigate(action)
