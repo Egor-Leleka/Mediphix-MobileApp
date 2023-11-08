@@ -4,17 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.Spinner
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mediphix_app.checks.ChecksAdapter
-import com.example.mediphix_app.databinding.ListOfDrugsPageBinding
 import com.example.mediphix_app.databinding.ManageChecksPageBinding
-import com.example.mediphix_app.drugs.DrugsAdapter
 import com.google.firebase.database.*
 
 class ManageChecks : Fragment(R.layout.manage_checks_page) {

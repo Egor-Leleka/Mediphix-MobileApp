@@ -1,6 +1,5 @@
 package com.example.mediphix_app
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -26,6 +25,8 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
     private val drugList = mutableListOf<Drugs>()
     private lateinit var redStickerDrugAdapter: DrugsAdapter
     private lateinit var removedDrugAdapter: DrugsAdapter
+    private val redStickerDrugList = mutableListOf<Drugs>()
+    private val removedDrugList = mutableListOf<Drugs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,55 +68,61 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
         binding.nurseFullNameTextView.text = "NURSE NAME: ${nurseData?.firstName.toString().uppercase()} ${nurseData?.lastName.toString().uppercase()}"
         binding.nurseRegNoTextView.text = "REG NO.: ${nurseData?.regNumber.toString()}"
 
-        if (!roomDrugList.isNullOrEmpty()) {
-            defaultSortFilterDrugList()
-        } else {
-            Toast.makeText(requireContext(), "No Drugs Info", Toast.LENGTH_SHORT).show()
+        defaultSortFilterDrugList()
+
+        if (redStickerDrugList.isNullOrEmpty() && removedDrugList.isNullOrEmpty()){
+            Toast.makeText(requireContext(), "No Drugs Available", Toast.LENGTH_SHORT).show()
         }
 
         binding.SaveBtn.setOnClickListener {
-            database = FirebaseDatabase.getInstance().getReference("Drugs")
-
-            val drugChildren = hashMapOf<String, Any>()
-
-            roomDrugList.forEach { updatedDrug ->
-                val key = updatedDrug.id
-                if (key != null) {
-                    drugChildren["$key/drugLabel"] = updatedDrug.drugLabel
-                }
+            if (redStickerDrugList.isNullOrEmpty() && removedDrugList.isNullOrEmpty()){
+                Toast.makeText(requireContext(), "No Drugs Available", Toast.LENGTH_SHORT).show()
             }
+            else
+            {
+                database = FirebaseDatabase.getInstance().getReference("Drugs")
 
-            database.updateChildren(drugChildren).addOnCompleteListener { task ->
-                if (!task.isSuccessful) {
-                    Toast.makeText(requireContext(), "Failed to save Drugs", Toast.LENGTH_SHORT).show()
+                val drugChildren = hashMapOf<String, Any>()
+
+                roomDrugList.forEach { updatedDrug ->
+                    val key = updatedDrug.id
+                    if (key != null && updatedDrug.drugLabel.toString() == "3") {
+                        drugChildren["$key/drugLabel"] = updatedDrug.drugLabel
+                    }
                 }
-            }
 
-            database = FirebaseDatabase.getInstance().getReference("Checks")
+                database.updateChildren(drugChildren).addOnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        Toast.makeText(requireContext(), "Failed to save Drugs", Toast.LENGTH_SHORT).show()
+                    }
+                }
 
-            val medTrack = requireActivity().application as MedTrack
-            var roomDrugList = medTrack.roomDrugList
-            var selectedRoomForCheck = medTrack.selectedRoomForCheck.toString().uppercase()
-            var nurseData = medTrack.currentNurseDetail
+                database = FirebaseDatabase.getInstance().getReference("Checks")
 
-            val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            val sdf2 = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-            val currentDate = Calendar.getInstance().apply {
-                set(Calendar.HOUR_OF_DAY, 0)
-                set(Calendar.MINUTE, 0)
-                set(Calendar.SECOND, 0)
-                set(Calendar.MILLISECOND, 0)
-            }.time
+                val medTrack = requireActivity().application as MedTrack
+                var roomDrugList = medTrack.roomDrugList
+                var selectedRoomForCheck = medTrack.selectedRoomForCheck.toString().uppercase()
+                var nurseData = medTrack.currentNurseDetail
 
-            val dateString = sdf.format(currentDate)
-            val dateDashString = sdf2.format(currentDate)
+                val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                val sdf2 = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val currentDate = Calendar.getInstance().apply {
+                    set(Calendar.HOUR_OF_DAY, 0)
+                    set(Calendar.MINUTE, 0)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }.time
 
-            val check = Checks(nurseData?.regNumber, nurseData?.firstName, nurseData?.lastName, selectedRoomForCheck, dateString.toString(), roomDrugList)
+                val dateString = sdf.format(currentDate)
+                val dateDashString = sdf2.format(currentDate)
 
-            database.child(dateDashString.toString() + " - " + nurseData?.regNumber.toString()).setValue(check).addOnSuccessListener {
-                showPopUp()
-            }.addOnFailureListener {
-                Toast.makeText(requireContext(), "Failed to save check", Toast.LENGTH_SHORT).show()
+                val check = Checks(nurseData?.regNumber, nurseData?.firstName, nurseData?.lastName, selectedRoomForCheck, dateString.toString(), roomDrugList)
+
+                database.child(dateDashString.toString() + " - " + nurseData?.regNumber.toString()).setValue(check).addOnSuccessListener {
+                    showPopUp()
+                }.addOnFailureListener {
+                    Toast.makeText(requireContext(), "Failed to save check", Toast.LENGTH_SHORT).show()
+                }
             }
         }
         return root
@@ -139,9 +146,6 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
 
 
     private fun defaultSortFilterDrugList() {
-        val redStickerDrugList = mutableListOf<Drugs>()
-        val removedDrugList = mutableListOf<Drugs>()
-
         val nurseApp = requireActivity().application as MedTrack
         val selectedRoomForCheck = nurseApp.selectedRoomForCheck
 
@@ -159,7 +163,6 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
                 removedDrugList.add(drug)
             }
         }
-
         redStickerDrugAdapter.updateList(redStickerDrugList)
         removedDrugAdapter.updateList(removedDrugList)
     }

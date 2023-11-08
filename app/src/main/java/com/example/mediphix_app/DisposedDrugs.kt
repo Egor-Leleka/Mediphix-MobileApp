@@ -11,11 +11,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mediphix_app.databinding.DisposedDrugsPageBinding
-import com.example.mediphix_app.databinding.ListOfDrugsPageBinding
 import com.example.mediphix_app.drugs.DrugsAdapter
 import com.google.firebase.database.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class DisposedDrugs : Fragment(R.layout.disposed_drugs_page) {
     enum class FilterOptions {

@@ -4,15 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mediphix_app.databinding.DrugCheckRoomPageBinding
-import com.example.mediphix_app.databinding.ListOfDrugsPageBinding
 import com.example.mediphix_app.drugs.DrugsAdapter
 import com.google.firebase.database.*
 import java.text.SimpleDateFormat
@@ -26,7 +22,7 @@ class DrugCheckRoom : Fragment(R.layout.drug_check_room_page) {
     private val drugList = mutableListOf<Drugs>()
     private lateinit var adapter: DrugsAdapter
 
-    private val originalDrugList = mutableListOf<Drugs>()
+    private var originalDrugList = mutableListOf<Drugs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,8 +34,12 @@ class DrugCheckRoom : Fragment(R.layout.drug_check_room_page) {
         val root: View = binding.root
 
         binding.NextBtn.setOnClickListener {
-            val action = DrugCheckRoomDirections.actionDrugCheckRoomToDrugCheckFinalize()
-            findNavController().navigate(action)
+            if(originalDrugList.isNullOrEmpty()){
+                Toast.makeText(requireContext(), "No Drugs Available", Toast.LENGTH_SHORT).show()
+            } else {
+                val action = DrugCheckRoomDirections.actionDrugCheckRoomToDrugCheckFinalize()
+                findNavController().navigate(action)
+            }
         }
 
         binding.backBtn.setOnClickListener {
@@ -85,7 +85,7 @@ class DrugCheckRoom : Fragment(R.layout.drug_check_room_page) {
                     }
                     defaultSortFilterDrugList()
                 } else {
-                    Toast.makeText(requireContext(), "No Drugs Info", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "No Drugs Available", Toast.LENGTH_SHORT).show()
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {
@@ -133,6 +133,7 @@ class DrugCheckRoom : Fragment(R.layout.drug_check_room_page) {
                 }
             }
             filteredList.sortByDescending {it.expiryDate}
+            originalDrugList = filteredList
             roomDrugList = filteredList
             medTrack.roomDrugList = filteredList
         }

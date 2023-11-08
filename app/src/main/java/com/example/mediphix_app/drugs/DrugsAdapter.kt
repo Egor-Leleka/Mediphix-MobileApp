@@ -4,14 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mediphix_app.Drugs
-import com.example.mediphix_app.ListOfDrugs
-import com.example.mediphix_app.MedTrack
 import com.example.mediphix_app.R
-import java.text.SimpleDateFormat
-import java.util.*
 
 class DrugsAdapter (private var drugList: MutableList<Drugs>,
                     private var isDrugCheckRoom: Boolean = false,
