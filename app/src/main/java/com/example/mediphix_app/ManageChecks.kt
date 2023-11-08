@@ -23,6 +23,7 @@ class ManageChecks : Fragment(R.layout.manage_checks_page) {
     private val binding get() = _binding!!
     private lateinit var database: DatabaseReference
     private var checkList = mutableListOf<Checks>()
+    private var drugList = mutableListOf<Drugs>()
     private lateinit var adapter: ChecksAdapter
 
     private val originalCheckList = mutableListOf<Checks>()
@@ -51,13 +52,27 @@ class ManageChecks : Fragment(R.layout.manage_checks_page) {
                 if (dataSnapshot.exists()) {
                     for (snapshot in dataSnapshot.children) {
                         val regNumber = snapshot.child("regNumber").value.toString()
-                        val Nurse_name = snapshot.child("Nurse_name").value.toString()
-                        val Storage_Location = snapshot.child("Storage_Location").value.toString()
+                        val firstName = snapshot.child("nurse_first_name").value.toString()
+                        val lastName = snapshot.child("nurse_last_name").value.toString()
+                        val storageLocation = snapshot.child("storage_Location").value.toString()
 
-                        val drugList = snapshot.child("drugList").value.toString()
+                        val drugsDataList = snapshot.child("drugList")
+                        for (drug in drugsDataList.children){
+                            val drugItem = Drugs(
+                                name = drug.child("name").toString(),
+                                id = drug.child("id").toString(),
+                                drugType = drug.child("drugType").toString(),
+                                securityType = drug.child("securityType").toString(),
+                                storageLocation = drug.child("storageLocation").toString(),
+                                expiryDate = drug.child("expiryDate").toString(),
+                                drugLabel = drug.child("drugLabel").value as Long
+                            )
+                            drugList.add(drugItem)
+                        }
+
                         val checkDate = snapshot.child("checkDate").value.toString()
 
-                        originalCheckList.add(Checks(regNumber, Nurse_name, Storage_Location, drugList, checkDate))
+                        originalCheckList.add(Checks(regNumber, firstName, lastName, storageLocation, checkDate, drugList))
                     }
                     adapter.updateList(originalCheckList)
                 } else {

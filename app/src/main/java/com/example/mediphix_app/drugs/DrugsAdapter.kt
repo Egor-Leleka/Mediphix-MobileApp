@@ -70,39 +70,6 @@ class DrugsAdapter (private var drugList: MutableList<Drugs>,
                 onDrugClickListener.onDrugClick(drugList)
             }
         }
-
-        /*
-        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        val currentDate: Date = sdf.parse(sdf.format(Date()))!!
-        val calendar = Calendar.getInstance()
-        calendar.time = currentDate
-        calendar.add(Calendar.DAY_OF_YEAR, 30)
-        val futureDate: Date = calendar.time
-        val expiredDate: Date = sdf.parse(currentDrugInfo.expiryDate)!!
-
-        if(isDrugCheckRoom) {
-            if(expiredDate.before(currentDate)){
-                holder.drugLabel.setImageResource(R.drawable.ic_dispose)
-
-            }
-            else if(expiredDate.after(futureDate)){
-                holder.drugLabel.setImageResource(R.drawable.ic_no_icon)
-            }
-            else {
-                holder.drugLabel.setImageResource(R.drawable.ic_red_label)
-            }
-        }
-        else {
-            if(currentDrugInfo.drugLabel.toString() == "1"){ // Drug Label == 1 is for no marking
-            holder.drugLabel.setImageResource(R.drawable.ic_no_icon)
-        }
-        else if (currentDrugInfo.drugLabel.toString() == "2"){ // Drug Label == 2 is for Red label marking
-            holder.drugLabel.setImageResource(R.drawable.ic_red_label)
-        }
-        else if (currentDrugInfo.drugLabel.toString() == "3"){ // Drug Label == 3 is for Dispose/Expired label marking
-            holder.drugLabel.setImageResource(R.drawable.ic_dispose)
-        }
-        }*/
     }
 
     fun updateList(newList: MutableList<Drugs>) {

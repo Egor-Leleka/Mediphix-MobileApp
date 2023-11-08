@@ -77,13 +77,10 @@ class NewDrug : Fragment(R.layout.add_new_drug_page) {
 
             database = FirebaseDatabase.getInstance().getReference("Drugs")
 
-            // Create a Nurse instance
             val drugs = Drugs(name, id, drugType, securityType, storageLocation, expiryDate)
 
-            // Save the user object to the database using the username as the key
             database.child(id).setValue(drugs).addOnSuccessListener {
 
-                // Clear input fields after successful database operation
                 binding.DrugName.text.clear()
                 binding.idNumber.text.clear()
                 binding.drugType.text.clear()

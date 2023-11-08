@@ -51,40 +51,39 @@
             android:id="@+id/password"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/input"
             android:hint="Password"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/regNumber" />
 
         <Button
             android:id="@+id/registerBtn"
-            android:layout_width="360dp"
-            android:layout_height="60dp"
+            android:layout_width="360sp"
+            android:layout_height="60sp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="564dp"
+            android:layout_marginTop="44dp"
             android:backgroundTint="#033C6B"
             android:text="Register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/password" />
 
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="180dp"
+            android:layout_width="360sp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="620dp"
             android:backgroundTint="#033C6B"
             android:text="Already have an account,? Login"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -94,9 +93,10 @@
             android:layout_marginBottom="32dp"
             android:src="@drawable/ic_registeruser"
             app:layout_constraintBottom_toTopOf="@+id/firstName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

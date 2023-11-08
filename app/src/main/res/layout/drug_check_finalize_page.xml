@@ -125,7 +125,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <Button
-            android:id="@+id/NextBtn"
+            android:id="@+id/SaveBtn"
             android:layout_width="125dp"
             android:layout_height="66dp"
             android:layout_gravity="center_horizontal"

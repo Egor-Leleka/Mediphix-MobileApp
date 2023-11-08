@@ -26,11 +26,23 @@ class ChecksAdapter (private var checkList: MutableList<Checks>) : RecyclerView.
 
     override fun onBindViewHolder(holder: ChecksAdapter.ViewHolder, position: Int) {
         val currentCheckInfo = checkList[position]
-        holder.checkDate.text = "Check Date :" + currentCheckInfo.checkDate.toString()
-        holder.storageLocation.text ="Storage Location :" + currentCheckInfo.Storage_Location
-        holder.nurseName.text ="Done by :"+ currentCheckInfo.Nurse_name
-        holder.regNo.text = "Reg. No :" +currentCheckInfo.regNumber
-        holder.drugList.text = "Drug List :" +currentCheckInfo.drugList
+        holder.checkDate.text = "Check Date: " + currentCheckInfo.checkDate.toString()
+        holder.storageLocation.text ="Storage Location: " + currentCheckInfo.Storage_Location
+        holder.nurseName.text ="Done by: "+ currentCheckInfo.Nurse_first_name.toString().uppercase() + " " + currentCheckInfo.Nurse_last_name.toString().uppercase()
+        holder.regNo.text = "Reg No.: " +currentCheckInfo.regNumber
+
+        var drugText = "Drug List:"
+        for((i, drug) in currentCheckInfo.drugList.withIndex()) {
+            val namePrefix = "value = "
+            val nameSuffix = " }"
+            val drugString = drug.name.toString()
+            val nameStartIndex = drugString.indexOf(namePrefix) + namePrefix.length
+            val nameEndIndex = drugString.indexOf(nameSuffix, startIndex = nameStartIndex)
+            val drugName = drugString.substring(nameStartIndex, nameEndIndex).trim()
+            drugText += "\n" + (i+1).toString() + ". " + drugName
+        }
+
+        holder.drugList.text = drugText
 
 
     }

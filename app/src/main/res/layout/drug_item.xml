@@ -73,7 +73,7 @@
             android:paddingTop="2dp"
             android:paddingBottom="3dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="75dp"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:text="Drug Expiry" />
@@ -88,7 +88,8 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="-29dp"
             android:layout_marginEnd="3dp"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:contentDescription="Drug Label" />
 
     </RelativeLayout>
 </LinearLayout>

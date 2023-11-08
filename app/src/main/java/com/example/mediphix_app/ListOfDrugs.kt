@@ -50,7 +50,7 @@ class ListOfDrugs : Fragment(R.layout.list_of_drugs_page) {
         val spinner: Spinner = binding.filterDDL
         val imageView: ImageView = binding.filterImageView
 
-        // Set the click listener on the ImageView to open the spinner
+        imageView.bringToFront()
         imageView.setOnClickListener { spinner.performClick() }
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

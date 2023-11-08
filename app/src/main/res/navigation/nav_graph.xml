@@ -122,5 +122,8 @@
         <action
             android:id="@+id/action_drugCheckFinalize_to_drugCheckRoom"
             app:destination="@id/drugCheckRoom" />
+        <action
+            android:id="@+id/action_drugCheckFinalize_to_home"
+            app:destination="@id/home" />
     </fragment>
 </navigation>
