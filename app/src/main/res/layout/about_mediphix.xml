@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,16 +13,11 @@
         android:padding="16dp"
         android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:text="Add Logo Here"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="match_parent"
+            android:layout_height="123dp"
+            android:src="@drawable/mediphix" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,8 +37,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/profile"
-                    android:background="@drawable/ic_launcher_background"
+                    android:src="@drawable/ic_registereduser"
                     android:contentDescription="Team Member 1 Photo"/>
 
                 <TextView
@@ -70,8 +65,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/profile"
-                    android:background="@drawable/ic_launcher_background"
+                    android:src="@drawable/ic_registereduser"
                     android:contentDescription="Team Member 2 Photo"/>
 
                 <TextView
@@ -108,8 +102,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/profile"
-                    android:background="@drawable/ic_launcher_background"
+                    android:src="@drawable/ic_registereduser"
                     android:contentDescription="Team Member 1 Photo"/>
 
                 <TextView
@@ -137,8 +130,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/profile"
-                    android:background="@drawable/ic_launcher_background"
+                    android:src="@drawable/ic_registereduser"
                     android:contentDescription="Team Member 2 Photo"/>
 
                 <TextView
@@ -175,8 +167,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/profile"
-                    android:background="@drawable/ic_launcher_background"
+                    android:src="@drawable/ic_registereduser"
                     android:contentDescription="Team Member 1 Photo"/>
 
                 <TextView
@@ -204,8 +195,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/profile"
-                    android:background="@drawable/ic_launcher_background"
+                    android:src="@drawable/ic_registereduser"
                     android:contentDescription="Team Member 2 Photo"/>
 
                 <TextView
@@ -242,8 +232,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/profile"
-                    android:background="@drawable/ic_launcher_background"
+                    android:src="@drawable/ic_registereduser"
                     android:contentDescription="Team Member 1 Photo"/>
 
                 <TextView

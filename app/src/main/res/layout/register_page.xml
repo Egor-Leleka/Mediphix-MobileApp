@@ -10,45 +10,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/shape"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
-            android:text="REGISTRATION"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <EditText
             android:id="@+id/firstName"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/input"
             android:hint="First Name"
             android:paddingLeft="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/lastName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/lastName"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/input"
             android:hint="Last Name"
             android:paddingLeft="20dp"
@@ -60,7 +39,7 @@
             android:id="@+id/regNumber"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/input"
             android:hint="Registration Number"
             android:paddingLeft="20dp"
@@ -72,11 +51,12 @@
             android:id="@+id/password"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/input"
             android:hint="Password"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/regNumber" />
 
@@ -85,10 +65,11 @@
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="572dp"
-            android:backgroundTint="@color/teal_200"
+            android:layout_marginTop="564dp"
+            android:backgroundTint="#033C6B"
             android:text="Register"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,12 +78,25 @@
             android:layout_width="180dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="630dp"
-            android:backgroundTint="@color/teal_200"
-            android:text="I have an account, Login"
+            android:layout_marginTop="620dp"
+            android:backgroundTint="#033C6B"
+            android:text="Already have an account,? Login"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:src="@drawable/ic_registeruser"
+            app:layout_constraintBottom_toTopOf="@+id/firstName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="0dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

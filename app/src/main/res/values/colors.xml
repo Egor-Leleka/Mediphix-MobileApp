@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#F0F4F3</color>
+    <color name="mediphix_blue">033C6B</color>
+    <color name="mediphix_darkblue">#033C6B</color>
+    <color name="mediphix_red">#EB0000</color>
 </resources>
