@@ -16,6 +16,9 @@
         <action
             android:id="@+id/loginToRegister"
             app:destination="@id/register" />
+        <action
+            android:id="@+id/action_login_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
     </fragment>
 
     <fragment
@@ -130,4 +133,13 @@
         android:id="@+id/disclaimerActivity"
         android:name="com.example.mediphix_app.DisclaimerActivity"
         android:label="DisclaimerActivity" />
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.example.mediphix_app.ForgotPassword"
+        android:label="forgot_password_page"
+        tools:layout="@layout/forgot_password_page" >
+        <action
+            android:id="@+id/action_forgotPassword_to_login"
+            app:destination="@id/login" />
+    </fragment>
 </navigation>

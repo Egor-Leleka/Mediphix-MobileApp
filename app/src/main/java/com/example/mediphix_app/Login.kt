@@ -50,6 +50,12 @@ class Login : Fragment(R.layout.login_page) {
             findNavController().navigate(action)
         }
 
+        // Forgot Password Button Start
+        binding.forgotBtn.setOnClickListener {
+            val action = LoginDirections.actionLoginToForgotPassword()
+            findNavController().navigate(action)
+        }
+
         // Bind the Login data button
         binding.loginBtn.setOnClickListener {
 

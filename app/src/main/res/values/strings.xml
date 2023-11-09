@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Mediphix_App</string>
     <string name="disclaimer_text">The Drug Expiry Checking app is a Prototype version for Nurses at Angelsea Hospital. It is intended that the app would provide insights into the use of a mobile automative system that supports Nurses and Staff at Angelsea Hospital, but in no way reflects the actual work-flow process. Systems change accordingly making older versions redundant – Angelsea and Wintec | Te Pukenga take no responsibility of outdated information displayed on the app. Upon accepting usage of the app assures that you understand these conditions.</string>
+    <string name="forgot_password_text">Please contact your IT support team for the help.</string>
 </resources>
