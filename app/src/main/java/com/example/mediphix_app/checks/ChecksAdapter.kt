@@ -1,14 +1,17 @@
 package com.example.mediphix_app.checks
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mediphix_app.Checks
 import com.example.mediphix_app.R
+import com.bumptech.glide.Glide
 
-class ChecksAdapter (private var checkList: MutableList<Checks>) : RecyclerView.Adapter<ChecksAdapter.ViewHolder>() {
+class ChecksAdapter (private val context : Context, private var checkList: MutableList<Checks>) : RecyclerView.Adapter<ChecksAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val checkDate: TextView = itemView.findViewById(R.id.checkDate)
@@ -16,6 +19,7 @@ class ChecksAdapter (private var checkList: MutableList<Checks>) : RecyclerView.
         val nurseName: TextView = itemView.findViewById(R.id.nurseName)
         val regNo: TextView = itemView.findViewById(R.id.regNo)
         val drugList: TextView = itemView.findViewById(R.id.drugList)
+        val signatureImage : ImageView = itemView.findViewById(R.id.signatureImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -49,6 +53,10 @@ class ChecksAdapter (private var checkList: MutableList<Checks>) : RecyclerView.
 
         holder.drugList.text = drugText
 
+        Glide.with(context)
+            .load(currentCheckInfo.imageUrl)
+            .error(R.drawable.ic_image_not_found)
+            .into(holder.signatureImage)
 
     }
 

@@ -1,143 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DrugCheckFinalize">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonLayout">
 
-        <TextView
-            android:id="@+id/room_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="DRUG CHECK: "
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/red_sticker_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RED STICKER: "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/recycler_view_finalize_room_drugs_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room_name"
-            app:layout_constraintVertical_bias="0.692" />
-
-        <TextView
-            android:id="@+id/Removed_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="REMOVED: "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/recycler_view_finalize_room_drugs_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_finalize_room_drugs_1" />
-
-        <TextView
-            android:id="@+id/nurseFullName_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="NURSE NAME: "
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkPerformed_textView" />
-
-        <TextView
-            android:id="@+id/checkPerformed_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="CHECK PERFORMED BY: "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_finalize_room_drugs_2" />
-
-        <TextView
-            android:id="@+id/nurseRegNo_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="REG NO.: "
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nurseFullName_textView" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_finalize_room_drugs_1"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="194dp"
-            android:layout_marginTop="52dp"
-            app:layout_constraintTop_toBottomOf="@+id/room_name"
-            tools:layout_editor_absoluteX="0dp" />
+            android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_finalize_room_drugs_2"
-            android:layout_width="match_parent"
-            android:layout_height="196dp"
-            android:layout_marginTop="280dp"
-            app:layout_constraintTop_toBottomOf="@+id/room_name"
-            tools:layout_editor_absoluteX="-2dp" />
+            <TextView
+                android:id="@+id/room_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="DRUG CHECK: "
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/red_sticker_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RED STICKER: "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/recycler_view_finalize_room_drugs_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/room_name"
+                app:layout_constraintVertical_bias="0.692" />
+
+            <TextView
+                android:id="@+id/Removed_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REMOVED: "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/recycler_view_finalize_room_drugs_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_finalize_room_drugs_1" />
+
+            <TextView
+                android:id="@+id/checkPerformed_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="548dp"
+                android:text="CHECK PERFORMED BY: "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/nurseFullName_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="NURSE NAME: "
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkPerformed_textView" />
+
+            <TextView
+                android:id="@+id/nurseRegNo_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="REG NO.: "
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nurseFullName_textView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_finalize_room_drugs_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                app:layout_constraintTop_toBottomOf="@+id/room_name"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_finalize_room_drugs_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="280dp"
+                app:layout_constraintTop_toBottomOf="@+id/room_name"
+                tools:layout_editor_absoluteX="-2dp" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="548dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.428"
+                app:layout_constraintStart_toEndOf="@+id/checkPerformed_textView"
+                app:layout_constraintTop_toTopOf="parent"
+                android:padding="2dp"
+                android:background="@drawable/signature_border">
+
+            <com.example.mediphix_app.SignatureView
+                android:id="@+id/signatureView"
+                android:layout_width="203dp"
+                android:layout_height="83dp"
+                android:background="@android:color/white"/>
+
+        </FrameLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="20sp">
 
         <Button
             android:id="@+id/backBtn"
             android:layout_width="121dp"
             android:layout_height="66dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="104dp"
+            android:layout_toLeftOf="@+id/dummyView"
             android:backgroundTint="#033C6B"
-            android:text="Back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            android:text="Back" />
+
+        <View
+            android:id="@+id/dummyView"
+            android:layout_width="50sp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true" />
 
         <Button
             android:id="@+id/SaveBtn"
             android:layout_width="125dp"
             android:layout_height="66dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="660dp"
+            android:layout_toRightOf="@+id/dummyView"
             android:backgroundTint="#018958"
-            android:text="SAVE"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.163"
-            app:layout_constraintStart_toEndOf="@+id/backBtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="SAVE" />
+    </RelativeLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</RelativeLayout>

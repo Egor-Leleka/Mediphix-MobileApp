@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-
         <TextView
             android:id="@+id/checkDate"
             android:layout_width="wrap_content"
@@ -51,7 +50,7 @@
 
         <TextView
             android:id="@+id/drugList"
-            android:layout_width="368dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nurseName"
             android:layout_alignParentStart="true"
@@ -79,6 +78,20 @@
             android:textSize="14sp"
             tools:text="Reg. No :" />
 
+        <ImageView
+            android:id="@+id/signatureImage"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_below="@+id/regNo"
+            android:layout_marginStart="143dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="578dp"
+            android:layout_toEndOf="@+id/drugList"
+            android:src="@drawable/ic_image_not_found"
+            android:background="@drawable/signature_border"/>
+
 
     </RelativeLayout>
+
 </LinearLayout>

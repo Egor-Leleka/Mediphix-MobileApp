@@ -1,9 +1,11 @@
 package com.example.mediphix_app
 
 import android.app.Dialog
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mediphix_app.databinding.DrugCheckFinalizePageBinding
 import com.example.mediphix_app.drugs.DrugsAdapter
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,13 +31,13 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
     private lateinit var removedDrugAdapter: DrugsAdapter
     private val redStickerDrugList = mutableListOf<Drugs>()
     private val removedDrugList = mutableListOf<Drugs>()
+    private var imageUrl : String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = DrugCheckFinalizePageBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -116,14 +120,54 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
                 val dateString = sdf.format(currentDate)
                 val dateDashString = sdf2.format(currentDate)
 
-                val check = Checks(nurseData?.regNumber, nurseData?.firstName, nurseData?.lastName, selectedRoomForCheck, dateString.toString(), roomDrugList)
+                val bitmap = binding.signatureView.getSignatureBitmap()
+                // Convert bitmap to byte array
+                val baos = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
+                val data = baos.toByteArray()
 
-                database.child(dateDashString.toString() + " - " + nurseData?.regNumber.toString()).setValue(check).addOnSuccessListener {
-                    medTrack.roomDrugList.clear()
-                    showPopUp()
-                }.addOnFailureListener {
-                    Toast.makeText(requireContext(), "Failed to save check", Toast.LENGTH_SHORT).show()
+                // Save to Firebase
+                val storageRef = FirebaseStorage.getInstance().reference
+                val signatureRef = storageRef.child("signatures/${UUID.randomUUID()}.png")
+
+                val uploadTask = signatureRef.putBytes(data)
+                uploadTask.addOnFailureListener {
+                    // Handle unsuccessful uploads
+                    // It's a good practice to provide more detail on the error to the user or in the logs.
+                    Toast.makeText(requireContext(), "Upload failed: ${it.message}", Toast.LENGTH_LONG).show()
+                }.addOnSuccessListener { taskSnapshot ->
+                    // Handle successful uploads on complete
+                    // Get the download URL after the upload is successful
+                    taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener { uri ->
+                        val imageUrl = uri.toString()
+
+                        // Create the Checks object here after you have the URL
+                        val check = Checks(
+                            nurseData?.regNumber,
+                            nurseData?.firstName,
+                            nurseData?.lastName,
+                            selectedRoomForCheck,
+                            dateString.toString(),
+                            imageUrl,
+                            roomDrugList
+                        )
+
+                        // Save the Checks object to the database
+                        database.child(dateDashString.toString() + " - " + nurseData?.regNumber.toString())
+                            .setValue(check)
+                            .addOnSuccessListener {
+                                medTrack.roomDrugList.clear()
+                                showPopUp()
+                            }.addOnFailureListener {
+                                // Handle the error properly
+                                Toast.makeText(requireContext(), "Failed to save check: ${it.message}", Toast.LENGTH_LONG).show()
+                            }
+                    }?.addOnFailureListener {
+                        // Handle any errors in getting the download URL
+                        Toast.makeText(requireContext(), "Failed to get download URL: ${it.message}", Toast.LENGTH_LONG).show()
+                    }
                 }
+
             }
         }
         return root

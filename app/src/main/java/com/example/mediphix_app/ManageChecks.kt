@@ -33,7 +33,7 @@ class ManageChecks : Fragment(R.layout.manage_checks_page) {
 
         database = FirebaseDatabase.getInstance().getReference("Checks")
 
-        adapter = ChecksAdapter(checkList)
+        adapter = ChecksAdapter(requireContext(), checkList)
         binding.recyclerViewDrugs.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewDrugs.adapter = adapter
 
@@ -49,6 +49,7 @@ class ManageChecks : Fragment(R.layout.manage_checks_page) {
                         val firstName = snapshot.child("nurse_first_name").value.toString()
                         val lastName = snapshot.child("nurse_last_name").value.toString()
                         val storageLocation = snapshot.child("storage_Location").value.toString()
+                        val imageUrl = snapshot.child("imageUrl").value.toString()
 
                         val drugsDataList = snapshot.child("drugList")
                         for (drug in drugsDataList.children){
@@ -66,7 +67,7 @@ class ManageChecks : Fragment(R.layout.manage_checks_page) {
 
                         val checkDate = snapshot.child("checkDate").value.toString()
 
-                        originalCheckList.add(Checks(regNumber, firstName, lastName, storageLocation, checkDate, drugList))
+                        originalCheckList.add(Checks(regNumber, firstName, lastName, storageLocation, checkDate, imageUrl, drugList))
                     }
                     adapter.updateList(originalCheckList)
                 } else {

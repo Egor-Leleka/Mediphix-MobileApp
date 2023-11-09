@@ -36,7 +36,7 @@ class CheckHistory : Fragment(R.layout.check_history_page)  {
         val nurseData = requireActivity().application as MedTrack
         val currentNurse = nurseData.currentNurseDetail
 
-        adapter = ChecksAdapter(checkList)
+        adapter = ChecksAdapter(requireContext(), checkList)
         binding.recyclerViewDrugs.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewDrugs.adapter = adapter
 
@@ -52,6 +52,7 @@ class CheckHistory : Fragment(R.layout.check_history_page)  {
                         val firstName = snapshot.child("nurse_first_name").value.toString()
                         val lastName = snapshot.child("nurse_last_name").value.toString()
                         val storageLocation = snapshot.child("storage_Location").value.toString()
+                        val imageUrl = snapshot.child("imageUrl").value.toString()
 
                         val drugsDataList = snapshot.child("drugList")
                         for (drug in drugsDataList.children){
@@ -70,7 +71,7 @@ class CheckHistory : Fragment(R.layout.check_history_page)  {
                         val checkDate = snapshot.child("checkDate").value.toString()
 
                         if (currentNurse != null && (currentNurse.regNumber == regNumber)){
-                            originalCheckList.add(Checks(regNumber, firstName, lastName, storageLocation, checkDate, drugList))
+                            originalCheckList.add(Checks(regNumber, firstName, lastName, storageLocation, checkDate, imageUrl, drugList))
                         }
                     }
                     adapter.updateList(originalCheckList)
