@@ -18,28 +18,33 @@ class ChecksAdapter (private var checkList: MutableList<Checks>) : RecyclerView.
         val drugList: TextView = itemView.findViewById(R.id.drugList)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChecksAdapter.ViewHolder {
-        return ChecksAdapter.ViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.checks_item, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: ChecksAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentCheckInfo = checkList[position]
-        holder.checkDate.text = "Check Date: " + currentCheckInfo.checkDate.toString()
+        holder.checkDate.text = "CHECK DATE: " + currentCheckInfo.checkDate.toString()
         holder.storageLocation.text ="Storage Location: " + currentCheckInfo.Storage_Location
         holder.nurseName.text ="Done by: "+ currentCheckInfo.Nurse_first_name.toString().uppercase() + " " + currentCheckInfo.Nurse_last_name.toString().uppercase()
         holder.regNo.text = "Reg No.: " +currentCheckInfo.regNumber
 
         var drugText = "Drug List:"
         for((i, drug) in currentCheckInfo.drugList.withIndex()) {
-            val namePrefix = "value = "
-            val nameSuffix = " }"
-            val drugString = drug.name.toString()
-            val nameStartIndex = drugString.indexOf(namePrefix) + namePrefix.length
-            val nameEndIndex = drugString.indexOf(nameSuffix, startIndex = nameStartIndex)
-            val drugName = drugString.substring(nameStartIndex, nameEndIndex).trim()
-            drugText += "\n" + (i+1).toString() + ". " + drugName
+            val prefix = "value = "
+            val suffix = " }"
+            val drugIdString = drug.id.toString()
+            val idStartIndex = drugIdString.indexOf(prefix) + prefix.length
+            val idEndIndex = drugIdString.indexOf(suffix, startIndex = idStartIndex)
+            val drugId = drugIdString.substring(idStartIndex, idEndIndex).trim()
+
+            val drugNameString = drug.name.toString()
+            val nameStartIndex = drugNameString.indexOf(prefix) + prefix.length
+            val nameEndIndex = drugNameString.indexOf(suffix, startIndex = nameStartIndex)
+            val drugName = drugNameString.substring(nameStartIndex, nameEndIndex).trim()
+            drugText += "\n" + (i+1).toString() + ". " + drugId + " - " + drugName
         }
 
         holder.drugList.text = drugText
