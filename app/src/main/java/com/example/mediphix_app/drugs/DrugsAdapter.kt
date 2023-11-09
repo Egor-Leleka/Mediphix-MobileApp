@@ -4,9 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mediphix_app.Drugs
 import com.example.mediphix_app.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DrugsAdapter (private var drugList: MutableList<Drugs>,
                     private var isDrugCheckRoom: Boolean = false,
@@ -41,6 +45,7 @@ class DrugsAdapter (private var drugList: MutableList<Drugs>,
         }
         else if (currentDrugInfo.drugLabel.toString() == "2"){ // Drug Label == 2 is for Red label marking
             holder.drugLabel.setImageResource(R.drawable.ic_red_label)
+
         }
         else if (currentDrugInfo.drugLabel.toString() == "3"){ // Drug Label == 3 is for Dispose/Expired label marking
             holder.drugLabel.setImageResource(R.drawable.ic_dispose)
@@ -49,6 +54,19 @@ class DrugsAdapter (private var drugList: MutableList<Drugs>,
         val button: Button = holder.itemView.findViewById(R.id.spinner_drug_item)
 
         if(isDrugCheckRoom) {
+            val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val currentDate: Date = sdf.parse(sdf.format(Date()))!!
+            val calendar = Calendar.getInstance()
+            calendar.time = currentDate
+            calendar.add(Calendar.DAY_OF_YEAR, 30)
+            val futureDate: Date = calendar.time
+
+            val expiredDate: Date = sdf.parse(currentDrugInfo.expiryDate)!!
+
+            if(expiredDate.before(currentDate) || expiredDate.before(futureDate)){
+                holder.drugExpiry.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.mediphix_red))
+            }
+
             button.setOnClickListener {
                 if(currentDrugInfo.drugLabel.toString() == "1"){ // Drug Label == 1 is for no marking
                     holder.drugLabel.setImageResource(R.drawable.ic_red_label)

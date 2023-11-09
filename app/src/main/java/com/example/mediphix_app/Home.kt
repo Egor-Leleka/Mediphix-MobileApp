@@ -19,6 +19,10 @@ class Home : Fragment(R.layout.home_page) {
         // Inflate the layout for this fragment
         binding = HomePageBinding.inflate(inflater, container, false)
         return binding.root
+
+        val medTrack = requireActivity().application as MedTrack
+
+        medTrack.roomDrugList.clear()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

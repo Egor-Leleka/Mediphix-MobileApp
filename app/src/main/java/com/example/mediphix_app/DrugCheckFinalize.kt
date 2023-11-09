@@ -119,6 +119,7 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
                 val check = Checks(nurseData?.regNumber, nurseData?.firstName, nurseData?.lastName, selectedRoomForCheck, dateString.toString(), roomDrugList)
 
                 database.child(dateDashString.toString() + " - " + nurseData?.regNumber.toString()).setValue(check).addOnSuccessListener {
+                    medTrack.roomDrugList.clear()
                     showPopUp()
                 }.addOnFailureListener {
                     Toast.makeText(requireContext(), "Failed to save check", Toast.LENGTH_SHORT).show()
