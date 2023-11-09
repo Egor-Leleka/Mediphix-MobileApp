@@ -21,9 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Thread.sleep(1000)
-        installSplashScreen()
-
         setContentView(R.layout.activity_main)
 
         navBottom = findViewById(R.id.bottom_nav)

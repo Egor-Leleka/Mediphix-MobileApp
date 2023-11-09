@@ -126,4 +126,8 @@
             android:id="@+id/action_drugCheckFinalize_to_home"
             app:destination="@id/home" />
     </fragment>
+    <activity
+        android:id="@+id/disclaimerActivity"
+        android:name="com.example.mediphix_app.DisclaimerActivity"
+        android:label="DisclaimerActivity" />
 </navigation>
