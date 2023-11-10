@@ -39,7 +39,7 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="393dp"
+        android:layout_width="0dp"
         android:layout_height="153dp"
         android:src="@drawable/medtrack"
         app:layout_constraintBottom_toBottomOf="parent"

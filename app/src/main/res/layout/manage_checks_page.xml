@@ -28,7 +28,7 @@
             android:id="@+id/lbl_listOfChecks2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="60dp"
             android:text="Checks"
             android:textColor="@color/mediphix_red"

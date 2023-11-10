@@ -18,13 +18,12 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
             android:layout_marginTop="60dp"
             android:text="Drug"
             android:textColor="@color/mediphix_darkblue"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.343"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +31,7 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="60dp"
             android:text="Check"
             android:textColor="@color/mediphix_red"

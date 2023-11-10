@@ -79,7 +79,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="#033C6B"
-            android:text="Already have an account,? Login"
+            android:text="Already have an account? Login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
