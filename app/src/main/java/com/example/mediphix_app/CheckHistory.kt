@@ -55,6 +55,9 @@ class CheckHistory : Fragment(R.layout.check_history_page)  {
                         val imageUrl = snapshot.child("imageUrl").value.toString()
 
                         val drugsDataList = snapshot.child("drugList")
+
+                        drugList.clear()
+
                         for (drug in drugsDataList.children){
                             val drugItem = Drugs(
                                 name = drug.child("name").toString(),
@@ -76,13 +79,60 @@ class CheckHistory : Fragment(R.layout.check_history_page)  {
                     }
                     adapter.updateList(originalCheckList)
                 } else {
-                    Toast.makeText(requireContext(), "No Drugs Info", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "No Checks Info", Toast.LENGTH_SHORT).show()
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {
                 Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show()
             }
         })
+
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                checkList.clear()
+                originalCheckList.clear()
+
+                if (dataSnapshot.exists()) {
+                    for (snapshot in dataSnapshot.children) {
+                        val regNumber = snapshot.child("regNumber").value.toString()
+                        val firstName = snapshot.child("nurse_first_name").value.toString()
+                        val lastName = snapshot.child("nurse_last_name").value.toString()
+                        val storageLocation = snapshot.child("storage_location").value.toString()
+                        val imageUrl = snapshot.child("imageUrl").value.toString()
+                        val drugsDataList = snapshot.child("drugList")
+
+                        val currentDrugList = mutableListOf<Drugs>() // Create a new list for each check
+
+                        for (drug in drugsDataList.children) {
+                            val drugItem = Drugs(
+                                name = drug.child("name").value.toString(),
+                                id = drug.child("id").value.toString(),
+                                drugType = drug.child("drugType").value.toString(),
+                                securityType = drug.child("securityType").value.toString(),
+                                storageLocation = drug.child("storageLocation").value.toString(),
+                                expiryDate = drug.child("expiryDate").value.toString(),
+                                drugLabel = (drug.child("drugLabel").value as Long?) ?: 1L // Default to 1L if null
+                            )
+                            currentDrugList.add(drugItem)
+                        }
+
+                        val checkDate = snapshot.child("checkDate").value.toString()
+
+                        if (currentNurse != null && (currentNurse.regNumber == regNumber)){
+                            originalCheckList.add(Checks(regNumber, firstName, lastName, storageLocation, checkDate, imageUrl, currentDrugList))
+                        }
+                    }
+                    adapter.updateList(originalCheckList)
+                } else {
+                    Toast.makeText(requireContext(), "No Checks Info", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show()
+            }
+        })
+
         return root
     }
 

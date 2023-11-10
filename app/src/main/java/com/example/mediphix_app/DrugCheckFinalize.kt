@@ -141,6 +141,11 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
                     taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener { uri ->
                         val imageUrl = uri.toString()
 
+                        //record only disposed drugs
+                        val filteredList = roomDrugList.filter { drug ->
+                            drug.drugLabel == 3L
+                        }
+
                         // Create the Checks object here after you have the URL
                         val check = Checks(
                             nurseData?.regNumber,
@@ -149,11 +154,11 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
                             selectedRoomForCheck,
                             dateString.toString(),
                             imageUrl,
-                            roomDrugList
+                            filteredList
                         )
 
                         // Save the Checks object to the database
-                        database.child(dateDashString.toString() + " - " + nurseData?.regNumber.toString())
+                        database.child(dateDashString.toString() + " - " + nurseData?.regNumber.toString() + " - " + selectedRoomForCheck)
                             .setValue(check)
                             .addOnSuccessListener {
                                 medTrack.roomDrugList.clear()

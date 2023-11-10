@@ -10,15 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- List of Drugs Button -->
-
-        <!-- Disposed Drugs Button -->
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="125dp"
+            android:layout_marginStart="140dp"
             android:layout_marginTop="60dp"
             android:text="Drug"
             android:textColor="@color/mediphix_darkblue"
@@ -31,7 +27,7 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="60dp"
             android:text="Check"
             android:textColor="@color/mediphix_red"
@@ -40,47 +36,126 @@
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/knoxWingDrugRoomBtn"
-            android:layout_width="310dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="80dp"
-            android:backgroundTint="@color/mediphix_darkblue"
-            android:text="Knox Wing Drug Room"
-            android:textColor="#FFFFFF"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView" />
-
         <!-- Manage Checks Button -->
 
-        <Button
-            android:id="@+id/dayStayNursesStationBtn"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/knoxWingDrugRoomBtn"
             android:layout_width="310dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@color/mediphix_darkblue"
-            android:text="Day Station Nurses Station"
-            android:textColor="#FFFFFF"
-            app:layout_constraintHorizontal_bias="0.514"
+            android:layout_height="110dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/button_rounded_background"
+            android:orientation="vertical"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/knoxWingDrugRoomBtn" />
+            app:layout_constraintTop_toBottomOf="@id/textView">
 
-        <Button
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="124dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="4dp"
+                android:text="Knox Wing Drug Room"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/knoxTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/wardOfficeNursesStationBtn"
             android:layout_width="310dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@color/mediphix_darkblue"
-            android:text="Ward Office Nurses Station"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.514"
+            android:layout_height="110dp"
+            android:layout_marginTop="364dp"
+            android:background="@drawable/button_rounded_background"
+            android:orientation="vertical"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dayStayNursesStationBtn"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@id/textView">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="145dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:text="Ward Office Nurse Station"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/wardTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dayStayNursesStationBtn"
+            android:layout_width="310dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="232dp"
+            android:background="@drawable/button_rounded_background"
+            android:orientation="vertical"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="135dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="4dp"
+                android:text="Day Stay Nurse Station"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dayTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

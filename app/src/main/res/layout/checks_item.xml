@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="186dp"
         android:padding="8dp">
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_alignBottom="@+id/nurseName"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="40dp"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="45dp"
             android:layout_marginEnd="16dp"
@@ -83,15 +83,13 @@
             android:layout_width="wrap_content"
             android:layout_height="46dp"
             android:layout_below="@+id/regNo"
-            android:layout_marginStart="143dp"
+            android:layout_alignStart="@+id/regNo"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="27dp"
             android:layout_marginBottom="578dp"
-            android:layout_toEndOf="@+id/drugList"
-            android:src="@drawable/ic_image_not_found"
-            android:background="@drawable/signature_border"/>
-
-
+            android:background="@drawable/signature_border"
+            android:src="@drawable/ic_image_not_found" />
     </RelativeLayout>
 
 </LinearLayout>

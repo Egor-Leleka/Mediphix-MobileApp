@@ -63,8 +63,9 @@ class DrugCheckRoom : Fragment(R.layout.drug_check_room_page) {
 
         val medTrack = requireActivity().application as MedTrack
         var roomDrugList = medTrack.roomDrugList
-        var selectedRoomForCheck = medTrack.selectedRoomForCheck.toString().uppercase()
-        binding.roomName.text = "DRUG CHECK - $selectedRoomForCheck"
+        var selectedRoomForCheck = medTrack.selectedRoomForCheck.toString()
+        binding.roomName.text = selectedRoomForCheck.split(" ")[0]
+        binding.roomNam3.text = selectedRoomForCheck.split(" ")[1]
 
         database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {

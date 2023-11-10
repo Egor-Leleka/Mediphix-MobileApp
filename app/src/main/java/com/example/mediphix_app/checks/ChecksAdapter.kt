@@ -31,24 +31,17 @@ class ChecksAdapter (private val context : Context, private var checkList: Mutab
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentCheckInfo = checkList[position]
         holder.checkDate.text = "CHECK DATE: " + currentCheckInfo.checkDate.toString()
-        holder.storageLocation.text ="Storage Location: " + currentCheckInfo.Storage_Location
-        holder.nurseName.text ="Done by: "+ currentCheckInfo.Nurse_first_name.toString().uppercase() + " " + currentCheckInfo.Nurse_last_name.toString().uppercase()
+        holder.storageLocation.text ="Storage Location: " + currentCheckInfo.storage_location
+        holder.nurseName.text ="Done by: "+ currentCheckInfo.nurse_first_name.toString().uppercase() + " " + currentCheckInfo.nurse_last_name.toString().uppercase()
         holder.regNo.text = "Reg No.: " +currentCheckInfo.regNumber
 
         var drugText = "Drug List:"
-        for((i, drug) in currentCheckInfo.drugList.withIndex()) {
-            val prefix = "value = "
-            val suffix = " }"
-            val drugIdString = drug.id.toString()
-            val idStartIndex = drugIdString.indexOf(prefix) + prefix.length
-            val idEndIndex = drugIdString.indexOf(suffix, startIndex = idStartIndex)
-            val drugId = drugIdString.substring(idStartIndex, idEndIndex).trim()
+        for((i, drug) in currentCheckInfo.drugList?.withIndex()!!) {
+            drugText += "\n" + (i+1).toString() + ". " + drug.id + " - " + drug.name
+        }
 
-            val drugNameString = drug.name.toString()
-            val nameStartIndex = drugNameString.indexOf(prefix) + prefix.length
-            val nameEndIndex = drugNameString.indexOf(suffix, startIndex = nameStartIndex)
-            val drugName = drugNameString.substring(nameStartIndex, nameEndIndex).trim()
-            drugText += "\n" + (i+1).toString() + ". " + drugId + " - " + drugName
+        if(drugText == "Drug List:") {
+            drugText += "\n No drugs disposed."
         }
 
         holder.drugList.text = drugText
