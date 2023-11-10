@@ -13,79 +13,98 @@
 
         <EditText
             android:id="@+id/regNumber"
-            android:layout_width="350sp"
-            android:layout_height="50sp"
-            android:layout_marginTop="332dp"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="396dp"
             android:background="@drawable/input"
-            android:hint="Registrstion Number"
+            android:hint="Registration Number"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.59"
+            app:layout_constraintHorizontal_bias="0.529"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="350sp"
-            android:layout_height="50sp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/input"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:paddingLeft="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.573"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/regNumber" />
-
-        <ToggleButton
-            android:id="@+id/togglePassword"
-            android:layout_width="75sp"
-            android:layout_height="40sp"
-            android:layout_marginEnd="60dp"
-            android:checked="false"
-            android:textOff="Show"
-            android:textOn="Hide"
-            app:layout_constraintBottom_toBottomOf="@+id/password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/password" />
-
-        <Button
-            android:id="@+id/forgotBtn"
-            android:layout_width="380dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="#033C6B"
-            android:text="FORGOT PASSWORD"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.516"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
-
-        <Button
-            android:id="@+id/registerBtn"
-            android:layout_width="380dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="#033C6B"
-            android:text="Don't have an account? Register now"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.516"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/forgotBtn" />
-
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="380dp"
+            android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="36dp"
             android:backgroundTint="#033C6B"
             android:text="Login"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password" />
+
+        <TextView
+            android:id="@+id/forgotBtn"
+            android:layout_width="360dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Forgot Password?"
+            android:textColor="@color/mediphix_red"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+
+        <TextView
+            android:id="@+id/registerBtn"
+            android:layout_width="360dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Don't have an account? Sign up"
+            android:textColor="@color/mediphix_red"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/forgotBtn" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="360sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/input"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="25dp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regNumber" />
+
+        <ImageView
+            android:id="@+id/togglePassword"
+            android:layout_width="50sp"
+            android:layout_height="40sp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/mediphix_blue"
+            android:checked="false"
+            android:padding="10sp"
+            android:src="@drawable/eye_closed"
+            android:textOff="Show"
+            android:textOn="Hide"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintHorizontal_bias="0.961"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toTopOf="@+id/password" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -93,13 +112,13 @@
             android:layout_height="250dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
-            android:src="@drawable/ic_registereduser"
+            android:src="@drawable/nurse_image"
             app:layout_constraintBottom_toTopOf="@+id/regNumber"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.122" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
