@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/login"
         android:name="com.example.mediphix_app.Login"
-        android:label="login_page"
-        tools:layout="@layout/login_page" >
+        android:label="Login"
+        tools:layout="@layout/login_page">
         <action
             android:id="@+id/loginAction"
             app:destination="@id/home" />
@@ -24,8 +24,8 @@
     <fragment
         android:id="@+id/register"
         android:name="com.example.mediphix_app.Register"
-        android:label="register_page"
-        tools:layout="@layout/register_page" >
+        android:label="Register New User"
+        tools:layout="@layout/register_page">
         <action
             android:id="@+id/action_register_to_login"
             app:destination="@id/login" />
@@ -34,8 +34,8 @@
     <fragment
         android:id="@+id/home"
         android:name="com.example.mediphix_app.Home"
-        android:label="home_page"
-        tools:layout="@layout/home_page" >
+        android:label="Home Page"
+        tools:layout="@layout/home_page">
         <action
             android:id="@+id/action_home_to_drugCheck"
             app:destination="@id/drugCheck" />
@@ -55,8 +55,8 @@
     <fragment
         android:id="@+id/profile"
         android:name="com.example.mediphix_app.Profile"
-        android:label="profile_page"
-        tools:layout="@layout/profile_page" >
+        android:label="Profile Page"
+        tools:layout="@layout/profile_page">
         <action
             android:id="@+id/action_profile_to_checkHistory"
             app:destination="@id/checkHistory" />
@@ -64,13 +64,13 @@
     <fragment
         android:id="@+id/newDrug"
         android:name="com.example.mediphix_app.NewDrug"
-        android:label="add_new_drug_page"
+        android:label="Add New Drug"
         tools:layout="@layout/add_new_drug_page" />
     <fragment
         android:id="@+id/drugCheck"
         android:name="com.example.mediphix_app.DrugCheck"
-        android:label="drug_check_page"
-        tools:layout="@layout/drug_check_page" >
+        android:label="Drug Check"
+        tools:layout="@layout/drug_check_page">
         <action
             android:id="@+id/action_drugCheck_to_drugCheckRoom"
             app:destination="@id/drugCheckRoom" />
@@ -85,32 +85,32 @@
     <fragment
         android:id="@+id/listOfDrugs"
         android:name="com.example.mediphix_app.ListOfDrugs"
-        android:label="list_of_drugs_page"
+        android:label="List of Drugs"
         tools:layout="@layout/list_of_drugs_page" />
     <fragment
         android:id="@+id/disposedDrugs"
         android:name="com.example.mediphix_app.DisposedDrugs"
-        android:label="disposed_drugs_page"
+        android:label="Disposed Drugs"
         tools:layout="@layout/disposed_drugs_page" />
     <fragment
         android:id="@+id/manageChecks"
         android:name="com.example.mediphix_app.ManageChecks"
-        android:label="manage_checks_page"
+        android:label="List of Checks"
         tools:layout="@layout/manage_checks_page" />
     <fragment
         android:id="@+id/aboutMediphix"
         android:name="com.example.mediphix_app.AboutMediphix"
-        android:label="about_mediphix"
+        android:label="About Mediphix"
         tools:layout="@layout/about_mediphix" />
     <fragment
         android:id="@+id/checkHistory"
         android:name="com.example.mediphix_app.CheckHistory"
-        android:label="check_history_page"
+        android:label="Check History"
         tools:layout="@layout/check_history_page" />
     <fragment
         android:id="@+id/drugCheckRoom"
         android:name="com.example.mediphix_app.DrugCheckRoom"
-        android:label="DrugCheckRoom" >
+        android:label="Drug Check Room">
         <action
             android:id="@+id/action_drugCheckRoom_to_drugCheckFinalize"
             app:destination="@id/drugCheckFinalize" />
@@ -121,7 +121,7 @@
     <fragment
         android:id="@+id/drugCheckFinalize"
         android:name="com.example.mediphix_app.DrugCheckFinalize"
-        android:label="DrugCheckFinalize" >
+        android:label="Drug Check Finalize">
         <action
             android:id="@+id/action_drugCheckFinalize_to_drugCheckRoom"
             app:destination="@id/drugCheckRoom" />
@@ -132,12 +132,12 @@
     <activity
         android:id="@+id/disclaimerActivity"
         android:name="com.example.mediphix_app.DisclaimerActivity"
-        android:label="DisclaimerActivity" />
+        android:label="Disclaimer" />
     <fragment
         android:id="@+id/forgotPassword"
         android:name="com.example.mediphix_app.ForgotPassword"
-        android:label="forgot_password_page"
-        tools:layout="@layout/forgot_password_page" >
+        android:label="Forgot Password"
+        tools:layout="@layout/forgot_password_page">
         <action
             android:id="@+id/action_forgotPassword_to_login"
             app:destination="@id/login" />
