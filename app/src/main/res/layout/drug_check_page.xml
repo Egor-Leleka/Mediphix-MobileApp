@@ -14,7 +14,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
+            android:layout_marginStart="125dp"
             android:layout_marginTop="60dp"
             android:text="Drug"
             android:textColor="@color/mediphix_darkblue"
@@ -43,13 +43,13 @@
             android:id="@+id/knoxWingDrugRoomBtn"
             android:layout_width="310dp"
             android:layout_height="110dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="55dp"
             android:background="@drawable/button_rounded_background"
             android:orientation="vertical"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <TextView
                 android:id="@+id/textView12"
@@ -59,8 +59,8 @@
                 android:text="Knox Wing Drug Room"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,13 +82,13 @@
             android:id="@+id/wardOfficeNursesStationBtn"
             android:layout_width="310dp"
             android:layout_height="110dp"
-            android:layout_marginTop="364dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/button_rounded_background"
             android:orientation="vertical"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/dayStayNursesStationBtn">
 
             <TextView
                 android:id="@+id/textView14"
@@ -96,10 +96,10 @@
                 android:layout_height="52dp"
                 android:layout_marginTop="4dp"
                 android:text="Ward Office Nurse Station"
-                android:textStyle="bold"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
@@ -121,13 +121,13 @@
             android:id="@+id/dayStayNursesStationBtn"
             android:layout_width="310dp"
             android:layout_height="110dp"
-            android:layout_marginTop="232dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/button_rounded_background"
             android:orientation="vertical"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/knoxWingDrugRoomBtn">
 
             <TextView
                 android:id="@+id/textView13"
@@ -135,10 +135,10 @@
                 android:layout_height="55dp"
                 android:layout_marginTop="4dp"
                 android:text="Day Stay Nurse Station"
-                android:textStyle="bold"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"

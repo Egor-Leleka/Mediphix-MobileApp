@@ -15,12 +15,14 @@
             android:id="@+id/regNumber"
             android:layout_width="370dp"
             android:layout_height="50dp"
-            android:layout_marginTop="396dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="348dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/input"
             android:hint="Registration Number"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +31,7 @@
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="45dp"
             android:backgroundTint="#033C6B"
             android:text="Login"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,12 +79,14 @@
             android:id="@+id/password"
             android:layout_width="360sp"
             android:layout_height="50sp"
-            android:layout_marginTop="36dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/input"
+            android:fontFamily="sans-serif"
             android:hint="Password"
             android:inputType="textPassword"
             android:paddingLeft="25dp"
-            android:fontFamily="sans-serif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,18 +111,17 @@
             app:layout_constraintTop_toTopOf="@+id/password" />
 
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="0dp"
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
             android:layout_height="250dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="32dp"
-            android:src="@drawable/nurse_image"
+            android:layout_marginTop="76dp"
+            android:layout_marginBottom="72dp"
+            android:src="@drawable/ic_registereduser"
             app:layout_constraintBottom_toTopOf="@+id/regNumber"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.122" />
+            app:layout_constraintVertical_bias="0.36" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

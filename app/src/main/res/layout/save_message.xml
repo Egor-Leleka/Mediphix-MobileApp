@@ -50,7 +50,7 @@
         android:layout_width="320dp"
         android:layout_height="73dp"
         android:layout_marginLeft="10sp"
-        android:text="Do not forget to take the removed drugs to the Post Acute Care Unit."
+        android:text="Don't forget to take the removed drugs to the Post Acute Care Unit."
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         android:textSize="20sp"

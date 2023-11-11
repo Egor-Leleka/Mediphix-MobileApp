@@ -26,29 +26,29 @@
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
-            android:id="@+id/filterDDL"
-            android:layout_width="46dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="48dp"
-            android:entries="@array/disposed_filter_sort_options"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView10"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:id="@+id/filterImageView"
             android:layout_width="47dp"
             android:layout_height="49dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="28dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:src="@drawable/ic_filter"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toEndOf="@+id/textView10"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <Spinner
+            android:id="@+id/filterDDL"
+            android:layout_width="46dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:entries="@array/disposed_filter_sort_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.326"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
