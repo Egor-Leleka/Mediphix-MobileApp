@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mediphix_app.databinding.DisposedDrugsPageBinding
-import com.example.mediphix_app.drugs.DrugsAdapter
+import com.example.mediphix_app.drugs.DisposedDrugsCheckAdapter
 import com.google.firebase.database.*
 
 class DisposedDrugs : Fragment(R.layout.disposed_drugs_page) {
@@ -22,11 +22,11 @@ class DisposedDrugs : Fragment(R.layout.disposed_drugs_page) {
     private var _binding: DisposedDrugsPageBinding? = null
     private val binding get() = _binding!!
     private lateinit var database: DatabaseReference
-    private val drugList = mutableListOf<Drugs>()
-    private lateinit var adapter: DrugsAdapter
+    private val disposedDrugsCheckList = mutableListOf<DisposedDrugsCheck>()
+    private lateinit var adapter: DisposedDrugsCheckAdapter
     private var currentFilter: FilterOptions = FilterOptions.All
 
-    private val originalDrugList = mutableListOf<Drugs>()
+    private val originalCheckList = mutableListOf<Checks>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,13 +37,9 @@ class DisposedDrugs : Fragment(R.layout.disposed_drugs_page) {
         _binding = DisposedDrugsPageBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        database = FirebaseDatabase.getInstance().getReference("Drugs")
+        database = FirebaseDatabase.getInstance().getReference("Checks")
 
-        adapter = DrugsAdapter(drugList, false, object : DrugsAdapter.OnDrugClickListener {
-            override fun onDrugClick(markedDrugList: MutableList<Drugs>) {
-                // Do nothing here
-            }
-        })
+        adapter = DisposedDrugsCheckAdapter(disposedDrugsCheckList)
         binding.recyclerViewDrugs.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewDrugs.adapter = adapter
 
@@ -60,7 +56,7 @@ class DisposedDrugs : Fragment(R.layout.disposed_drugs_page) {
                     1 -> currentFilter = FilterOptions.Simple
                     2 -> currentFilter = FilterOptions.Controlled
                 }
-                filterDrugList()
+                createDisposedDrugsCheckList(originalCheckList)
             }
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // Do nothing here
@@ -69,26 +65,44 @@ class DisposedDrugs : Fragment(R.layout.disposed_drugs_page) {
 
         database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                drugList.clear()
-                originalDrugList.clear()
+                disposedDrugsCheckList.clear()
+                originalCheckList.clear()
 
                 if (dataSnapshot.exists()) {
                     for (snapshot in dataSnapshot.children) {
-                        val drugType = snapshot.child("drugType").value.toString()
-                        val expiryDate = snapshot.child("expiryDate").value.toString()
-                        val drugId = snapshot.child("id").value.toString()
-                        val drugName = snapshot.child("name").value.toString()
-                        val securityType = snapshot.child("securityType").value.toString()
-                        val storageLocation = snapshot.child("storageLocation").value.toString()
-                        val drugLabel = snapshot.child("drugLabel").value as Long
+                        val regNumber = snapshot.child("regNumber").value.toString()
+                        val firstName = snapshot.child("nurse_first_name").value.toString()
+                        val lastName = snapshot.child("nurse_last_name").value.toString()
+                        val storageLocation = snapshot.child("storage_location").value.toString()
+                        val imageUrl = snapshot.child("imageUrl").value.toString()
+                        val drugsDataList = snapshot.child("drugList")
 
-                        originalDrugList.add(Drugs(drugName, drugId, drugType, securityType, storageLocation, expiryDate, drugLabel))
+                        val currentDrugList = mutableListOf<Drugs>() // Create a new list for each check
+
+                        for (drug in drugsDataList.children) {
+                            val drugItem = Drugs(
+                                name = drug.child("name").value.toString(),
+                                id = drug.child("id").value.toString(),
+                                drugType = drug.child("drugType").value.toString(),
+                                securityType = drug.child("securityType").value.toString(),
+                                storageLocation = drug.child("storageLocation").value.toString(),
+                                expiryDate = drug.child("expiryDate").value.toString(),
+                                drugLabel = (drug.child("drugLabel").value as Long?) ?: 3L // Default to 1L if null
+                            )
+                            currentDrugList.add(drugItem)
+                        }
+
+                        val checkDate = snapshot.child("checkDate").value.toString()
+
+                        originalCheckList.add(Checks(regNumber, firstName, lastName, storageLocation, checkDate, imageUrl, currentDrugList))
                     }
-                    filterDrugList()
+                    createDisposedDrugsCheckList(originalCheckList)
+
                 } else {
-                    Toast.makeText(requireContext(), "No Drugs Info", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "No Checks Info", Toast.LENGTH_SHORT).show()
                 }
             }
+
             override fun onCancelled(databaseError: DatabaseError) {
                 Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show()
             }
@@ -96,32 +110,62 @@ class DisposedDrugs : Fragment(R.layout.disposed_drugs_page) {
         return root
     }
 
-    private fun filterDrugList() {
-        val filteredList = mutableListOf<Drugs>()
+    fun createDisposedDrugsCheckList(checksList: List<Checks>) {
+        val filteredChecks = checksList.filter { it.drugList.isNullOrEmpty().not() }
+        val groupedChecks = filteredChecks.groupBy { it.checkDate }
 
-        for (drug in originalDrugList) {
+        val updatedDisposedDrugCheckList = groupedChecks.entries.sortedByDescending { it.key }.mapNotNull { group ->
+            val checkDate = group.key ?: return@mapNotNull null
+
+            var combinedDrugsList = group.value
+                .flatMap { it.drugList.orEmpty() }
+                .distinctBy { it.id }
+                .mapNotNull { drug ->
+                    if (drug.name == null || drug.id == null) return@mapNotNull null
+                    DisposedDrug(
+                        name = drug.name,
+                        id = drug.id,
+                        drugType = drug.drugType,
+                        storageLocation = drug.storageLocation,
+                        expiryDate = drug.expiryDate,
+                        nurseName = "${group.value.first().nurse_first_name} ${group.value.first().nurse_last_name}"
+                    )
+                }
+            combinedDrugsList = filterDrugList(combinedDrugsList)
+            if (combinedDrugsList.isNotEmpty()) {
+                DisposedDrugsCheck(
+                    checkDate = checkDate,
+                    disposedDrugsList = combinedDrugsList
+                )
+            } else null
+        }
+
+        adapter.updateList(updatedDisposedDrugCheckList as MutableList<DisposedDrugsCheck>)
+    }
+
+
+    private fun filterDrugList(disposedDrugList: List<DisposedDrug>) : List<DisposedDrug> {
+        val filteredList = mutableListOf<DisposedDrug>()
+
+        for (drug in disposedDrugList) {
             val drugType = drug.drugType
-            val drugLabel = drug.drugLabel
 
-            if (drugLabel.toString() == "3") {
-                when (currentFilter) {
-                    FilterOptions.All -> {
+            when (currentFilter) {
+                FilterOptions.All -> {
+                    filteredList.add(drug)
+                }
+                FilterOptions.Simple -> {
+                    if (drugType.toString() == "Simple") {
                         filteredList.add(drug)
                     }
-                    FilterOptions.Simple -> {
-                        if (drugType.toString() == "Simple") {
-                            filteredList.add(drug)
-                        }
-                    }
-                    FilterOptions.Controlled -> {
-                        if (drugType.toString() == "Controlled") {
-                            filteredList.add(drug)
-                        }
+                }
+                FilterOptions.Controlled -> {
+                    if (drugType.toString() == "Controlled") {
+                        filteredList.add(drug)
                     }
                 }
             }
-
         }
-        adapter.updateList(filteredList)
+        return filteredList
     }
 }

@@ -79,6 +79,11 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
         }
 
         binding.SaveBtn.setOnClickListener {
+
+            binding.myProgressBar.visibility = View.VISIBLE
+            it.isEnabled = false
+            binding.backBtn.isEnabled = false
+
             if (redStickerDrugList.isNullOrEmpty() && removedDrugList.isNullOrEmpty()){
                 Toast.makeText(requireContext(), "No Drugs Available", Toast.LENGTH_SHORT).show()
             }
@@ -90,7 +95,7 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
 
                 roomDrugList.forEach { updatedDrug ->
                     val key = updatedDrug.id
-                    if (key != null && updatedDrug.drugLabel.toString() == "3") {
+                    if (key != null) {
                         drugChildren["$key/drugLabel"] = updatedDrug.drugLabel
                     }
                 }
@@ -174,8 +179,17 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
                 }
 
             }
+
+            hideLoading()
         }
         return root
+    }
+
+
+    private fun hideLoading() {
+        binding.myProgressBar.visibility = View.GONE
+        binding.backBtn.isEnabled = true
+        binding.SaveBtn.isEnabled= true
     }
 
     private fun showPopUp() {

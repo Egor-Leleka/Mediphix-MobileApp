@@ -163,6 +163,12 @@
             android:layout_toRightOf="@+id/dummyView"
             android:backgroundTint="#018958"
             android:text="SAVE" />
+
+        <ProgressBar
+            android:id="@+id/myProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
     </RelativeLayout>
 
 </RelativeLayout>
