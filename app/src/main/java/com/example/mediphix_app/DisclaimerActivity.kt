@@ -15,6 +15,7 @@ class DisclaimerActivity : AppCompatActivity() {
 
         Thread.sleep(1000)
         installSplashScreen()
+        supportActionBar?.hide()
 
         setContentView(R.layout.activity_disclaimer)
 
