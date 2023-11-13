@@ -32,6 +32,16 @@ class MainActivity : AppCompatActivity() {
             setOf(R.id.home, R.id.newDrug, R.id.profile)
         )
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.login || destination.id == R.id.register || destination.id == R.id.forgotPassword) {
+                // Hide bottom navigation
+                navBottom.visibility = View.GONE
+            } else {
+                // Show bottom navigation
+                navBottom.visibility = View.VISIBLE
+            }
+        }
+
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navBottom.setupWithNavController(navController)

@@ -32,6 +32,15 @@ class Profile : Fragment(R.layout.profile_page) {
             findNavController().navigate(action)
         }
 
+        binding.logoutBtn.setOnClickListener {
+            val action = ProfileDirections.actionProfileToLogin()
+            findNavController().navigate(action)
+
+            val medTrack = requireActivity().application as MedTrack
+            medTrack.roomDrugList.clear()
+            medTrack.currentNurseDetail = null
+        }
+
         // Fetch the profile data for the currently logged-in user
         val nurseApp = requireActivity().application as MedTrack
         val currentNurse = nurseApp.currentNurseDetail

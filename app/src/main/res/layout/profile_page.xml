@@ -101,6 +101,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/regNumber" />
 
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="132dp"
+            android:backgroundTint="@color/mediphix_darkblue"
+            android:text="LOGOUT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkHistoryBtn" />
+
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="0dp"

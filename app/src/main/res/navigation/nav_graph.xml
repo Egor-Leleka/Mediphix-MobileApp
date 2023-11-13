@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_profile_to_checkHistory"
             app:destination="@id/checkHistory" />
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@id/login" />
     </fragment>
     <fragment
         android:id="@+id/newDrug"
