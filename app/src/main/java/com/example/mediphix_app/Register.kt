@@ -1,10 +1,13 @@
 package com.example.mediphix_app
 
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mediphix_app.databinding.RegisterPageBinding
@@ -26,6 +29,24 @@ class Register : Fragment(R.layout.register_page) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Toggle password visibility
+        val passwordEditText = binding.password
+        val togglePasswordButton = binding.togglePassword
+
+        togglePasswordButton.setColorFilter(ContextCompat.getColor(requireContext(), R.color.mediphix_blue))
+        togglePasswordButton.setOnClickListener() {
+            if (passwordEditText.inputType == InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+                // Show password
+                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                togglePasswordButton.setImageResource(R.drawable.eye_opened)
+            } else {
+                // Hide password
+                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                togglePasswordButton.setImageResource(R.drawable.eye_closed)
+            }
+            passwordEditText.typeface = Typeface.create("sans-serif", Typeface.NORMAL)
+        }
 
         binding.loginBtn.setOnClickListener {
             val action = RegisterDirections.actionRegisterToLogin()

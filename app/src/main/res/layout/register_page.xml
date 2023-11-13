@@ -49,16 +49,36 @@
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="340dp"
-            android:layout_height="50dp"
+            android:layout_width="340sp"
+            android:layout_height="50sp"
             android:layout_marginTop="20dp"
             android:background="@drawable/input"
+            android:fontFamily="sans-serif"
             android:hint="Password"
-            android:paddingLeft="20dp"
+            android:inputType="textPassword"
+            android:paddingLeft="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/regNumber" />
+
+        <ImageView
+            android:id="@+id/togglePassword"
+            android:layout_width="50sp"
+            android:layout_height="40sp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/mediphix_blue"
+            android:checked="false"
+            android:padding="10sp"
+            android:src="@drawable/eye_closed"
+            android:textOff="Show"
+            android:textOn="Hide"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintHorizontal_bias="0.961"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toTopOf="@+id/password" />
 
         <Button
             android:id="@+id/registerBtn"

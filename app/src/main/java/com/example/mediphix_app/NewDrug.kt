@@ -2,10 +2,12 @@ package com.example.mediphix_app
 
 import android.widget.DatePicker
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -14,6 +16,7 @@ import com.example.mediphix_app.databinding.RegisterPageBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -38,6 +41,7 @@ class NewDrug : Fragment(R.layout.add_new_drug_page) {
         drugExpiry = view.findViewById(R.id.drugExpiry)
 
         drugExpiry.setOnClickListener {
+            closeKeyboard()
             showDatePickerDialog()
         }
 
@@ -77,25 +81,46 @@ class NewDrug : Fragment(R.layout.add_new_drug_page) {
 
             database = FirebaseDatabase.getInstance().getReference("Drugs")
 
-            val drugs = Drugs(name, id, drugType, securityType, storageLocation, expiryDate)
-
-            database.child(id).setValue(drugs).addOnSuccessListener {
-
-                binding.DrugName.text.clear()
-                binding.idNumber.text.clear()
-                binding.drugType.text.clear()
-                binding.drugSecurity.text.clear()
-                spinner.setSelection(0)
-                binding.drugExpiry.text.clear()
-
-                // Success message
-                Toast.makeText(requireContext(), "Drug successfully saved", Toast.LENGTH_SHORT).show()
-
-            }.addOnFailureListener {
-
-                // Failure message
-                Toast.makeText(requireContext(), "Failed to save new drug", Toast.LENGTH_SHORT).show()
+            if(name.isNullOrBlank() || id.isNullOrBlank() || expiryDate.isNullOrBlank()) {
+                if(name.isNullOrBlank()) {
+                    Toast.makeText(requireContext(), "Please enter name of drug.", Toast.LENGTH_SHORT).show()
+                }
+                else if (id.isNullOrBlank()) {
+                    Toast.makeText(requireContext(), "Please enter id of drug.", Toast.LENGTH_SHORT).show()
+                }
+                else if (expiryDate.isNullOrBlank()) {
+                    Toast.makeText(requireContext(), "Please enter expiry date of drug.", Toast.LENGTH_SHORT).show()
+                }
             }
+            else {
+                val drugs = Drugs(name, id, drugType, securityType, storageLocation, expiryDate)
+
+                database.child(id).setValue(drugs).addOnSuccessListener {
+
+                    binding.DrugName.text.clear()
+                    binding.idNumber.text.clear()
+                    binding.drugType.text.clear()
+                    binding.drugSecurity.text.clear()
+                    spinner.setSelection(0)
+                    binding.drugExpiry.text.clear()
+
+                    // Success message
+                    Toast.makeText(requireContext(), "Drug successfully saved", Toast.LENGTH_SHORT).show()
+
+                }.addOnFailureListener {
+
+                    // Failure message
+                    Toast.makeText(requireContext(), "Failed to save new drug", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun closeKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            imm?.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
 
@@ -108,9 +133,14 @@ class NewDrug : Fragment(R.layout.add_new_drug_page) {
         val datePickerDialog = context?.let {
             DatePickerDialog(
                 it,
-                DatePickerDialog.OnDateSetListener { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
-                    // Month in DatePickerDialog is 0-indexed, so add 1 to month
-                    val selectedDate = "$dayOfMonth/${month + 1}/$year"
+                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+                    val calendar = Calendar.getInstance().apply {
+                        set(Calendar.YEAR, year)
+                        set(Calendar.MONTH, month)
+                        set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    }
+                    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                    val selectedDate = dateFormat.format(calendar.time)
                     drugExpiry.setText(selectedDate)
                 },
                 year,
