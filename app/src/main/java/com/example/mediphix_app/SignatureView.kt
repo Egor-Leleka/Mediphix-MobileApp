@@ -35,9 +35,16 @@ class SignatureView(context: Context, attrs: AttributeSet) : View(context, attrs
         val x = event.x
         val y = event.y
         when (event.action) {
-            MotionEvent.ACTION_DOWN -> path.moveTo(x, y)
-            MotionEvent.ACTION_MOVE -> path.lineTo(x, y)
-            MotionEvent.ACTION_UP -> {}
+            MotionEvent.ACTION_DOWN -> {
+                parent.requestDisallowInterceptTouchEvent(true)
+                path.moveTo(event.x, event.y)
+            }
+            MotionEvent.ACTION_MOVE -> {
+                path.lineTo(event.x, event.y)
+            }
+            MotionEvent.ACTION_UP -> {
+                parent.requestDisallowInterceptTouchEvent(false)
+            }
         }
         invalidate()
         return true
