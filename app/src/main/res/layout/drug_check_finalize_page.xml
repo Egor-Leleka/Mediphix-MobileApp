@@ -16,17 +16,53 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/room_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="40dp"
+                android:text="Drug"
+                android:textColor="@color/mediphix_darkblue"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/room_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:text="Check:"
+                android:textColor="@color/mediphix_red"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/room_name1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/room_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="DRUG CHECK: "
-                android:textColor="@color/black"
-                android:textSize="30sp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="80dp"
+                android:textColor="@color/mediphix_darkblue"
+                android:textSize="34sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/room_nam3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/mediphix_red"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/room_name"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -62,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="548dp"
+                android:layout_marginTop="700dp"
                 android:text="CHECK PERFORMED BY: "
                 android:textColor="@color/black"
                 android:textSize="15sp"
@@ -115,7 +151,7 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="548dp"
+                android:layout_marginTop="700dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.428"
                 app:layout_constraintStart_toEndOf="@+id/checkPerformed_textView"
@@ -164,11 +200,6 @@
             android:backgroundTint="#018958"
             android:text="SAVE" />
 
-        <ProgressBar
-            android:id="@+id/myProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
     </RelativeLayout>
 
 </RelativeLayout>

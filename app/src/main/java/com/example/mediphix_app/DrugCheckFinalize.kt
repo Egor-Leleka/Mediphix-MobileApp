@@ -68,7 +68,8 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
         var roomDrugList = medTrack.roomDrugList
         var selectedRoomForCheck = medTrack.selectedRoomForCheck.toString().uppercase()
         var nurseData = medTrack.currentNurseDetail
-        binding.roomName.text = "DRUG CHECK - $selectedRoomForCheck"
+        binding.roomName.text = selectedRoomForCheck.split(" ")[0]
+        binding.roomNam3.text = selectedRoomForCheck.split(" ")[1]
         binding.nurseFullNameTextView.text = "NURSE NAME: ${nurseData?.firstName.toString().uppercase()} ${nurseData?.lastName.toString().uppercase()}"
         binding.nurseRegNoTextView.text = "REG NO.: ${nurseData?.regNumber.toString()}"
 
@@ -80,9 +81,9 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
 
         binding.SaveBtn.setOnClickListener {
 
-            binding.myProgressBar.visibility = View.VISIBLE
             it.isEnabled = false
             binding.backBtn.isEnabled = false
+            Toast.makeText(requireContext(), "Saving check details", Toast.LENGTH_SHORT).show()
 
             if (redStickerDrugList.isNullOrEmpty() && removedDrugList.isNullOrEmpty()){
                 Toast.makeText(requireContext(), "No Drugs Available", Toast.LENGTH_SHORT).show()
@@ -177,19 +178,9 @@ class DrugCheckFinalize : Fragment(R.layout.drug_check_finalize_page) {
                         Toast.makeText(requireContext(), "Failed to get download URL: ${it.message}", Toast.LENGTH_LONG).show()
                     }
                 }
-
             }
-
-            hideLoading()
         }
         return root
-    }
-
-
-    private fun hideLoading() {
-        binding.myProgressBar.visibility = View.GONE
-        binding.backBtn.isEnabled = true
-        binding.SaveBtn.isEnabled= true
     }
 
     private fun showPopUp() {

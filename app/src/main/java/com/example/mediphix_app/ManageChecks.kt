@@ -20,7 +20,7 @@ class ManageChecks : Fragment(R.layout.manage_checks_page) {
     private var drugList = mutableListOf<Drugs>()
     private lateinit var adapter: ChecksAdapter
 
-    private val originalCheckList = mutableListOf<Checks>()
+    private var originalCheckList = mutableListOf<Checks>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -70,6 +70,7 @@ class ManageChecks : Fragment(R.layout.manage_checks_page) {
 
                         originalCheckList.add(Checks(regNumber, firstName, lastName, storageLocation, checkDate, imageUrl, currentDrugList))
                     }
+                    originalCheckList = originalCheckList.sortedByDescending { it.checkDate } as MutableList<Checks>
                     adapter.updateList(originalCheckList)
                 } else {
                     Toast.makeText(requireContext(), "No Checks Info", Toast.LENGTH_SHORT).show()

@@ -17,7 +17,7 @@
     <!-- Splash theme. -->
     <style name="Theme.Mediphix_App.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/black</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/medtrack180</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splashlogo</item>
         <item name="postSplashScreenTheme">@style/Theme.Mediphix_App</item>
     </style>
 </resources>

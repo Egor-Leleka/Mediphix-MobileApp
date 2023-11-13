@@ -133,7 +133,6 @@ class DrugCheckRoom : Fragment(R.layout.drug_check_room_page) {
                     filteredList.add(drug)
                 }
             }
-            filteredList.sortByDescending {it.expiryDate}
             originalDrugList = filteredList
             roomDrugList = filteredList
             medTrack.roomDrugList = filteredList
