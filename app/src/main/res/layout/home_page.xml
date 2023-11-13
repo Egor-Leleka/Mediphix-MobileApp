@@ -12,9 +12,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/startDrugCheckBtn"
-            android:layout_width="360dp"
+            android:layout_width="340dp"
             android:layout_height="105dp"
-            android:layout_marginTop="244dp"
+            android:layout_marginTop="225dp"
             android:background="@drawable/button_rounded_background"
             android:clickable="true"
             android:focusable="true"
@@ -54,12 +54,14 @@
             android:id="@+id/manageChecksBtn"
             android:layout_width="160dp"
             android:layout_height="150dp"
-            android:layout_marginTop="500dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="470dp"
             android:layout_marginEnd="41dp"
             android:background="@drawable/button_rounded_background"
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/disposedDrugsBtn"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -95,7 +97,7 @@
             android:layout_width="160dp"
             android:layout_height="150dp"
             android:layout_marginStart="41dp"
-            android:layout_marginTop="500dp"
+            android:layout_marginTop="470dp"
             android:layout_marginEnd="9dp"
             android:background="@drawable/button_rounded_background"
             android:clickable="true"
@@ -133,9 +135,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/listOfDrugsBtn"
-            android:layout_width="360dp"
+            android:layout_width="340dp"
             android:layout_height="105dp"
-            android:layout_marginTop="372dp"
+            android:layout_marginTop="350dp"
             android:background="@drawable/button_rounded_background"
             android:clickable="true"
             android:focusable="true"
@@ -176,7 +178,7 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="664dp"
+            android:layout_marginTop="644dp"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
@@ -193,7 +195,7 @@
             android:id="@+id/imageView2"
             android:layout_width="0dp"
             android:layout_height="142dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="38dp"
             android:src="@drawable/medtrack"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

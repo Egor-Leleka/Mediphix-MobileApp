@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Disclaimer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,25 +11,24 @@
 
     <TextView
         android:id="@+id/text_disclaimer_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="315dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/disclaimer_text"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/check_agree"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_disclaimer"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/text_disclaimer" />
 
     <Button
         android:id="@+id/NextBtn"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#033C6B"
         android:text="NEXT"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,7 +54,7 @@
         android:layout_height="wrap_content"
         android:text="DISCLAIMER"
         android:textColor="@color/black"
-        android:textSize="28sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

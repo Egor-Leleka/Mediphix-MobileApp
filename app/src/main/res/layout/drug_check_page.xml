@@ -14,12 +14,14 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="125dp"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="60dp"
+            android:layout_marginEnd="4dp"
             android:text="Drug"
             android:textColor="@color/mediphix_darkblue"
             android:textSize="34sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

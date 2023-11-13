@@ -14,7 +14,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="99dp"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="60dp"
             android:text="Add New"
             android:textColor="@color/mediphix_darkblue"
@@ -38,7 +38,7 @@
 
         <EditText
             android:id="@+id/DrugName"
-            android:layout_width="wrap_content"
+            android:layout_width="340dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="40dp"
@@ -53,7 +53,7 @@
 
         <EditText
             android:id="@+id/idNumber"
-            android:layout_width="360dp"
+            android:layout_width="340dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/input"
@@ -65,25 +65,25 @@
 
         <Spinner
             android:id="@+id/drugStorage"
-            android:layout_width="360dp"
+            android:layout_width="340dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/input"
+            android:entries="@array/dropdown_options"
             android:hint="Storage Location"
             android:paddingLeft="20dp"
-            android:entries="@array/dropdown_options"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idNumber" />
 
         <EditText
             android:id="@+id/drugSecurity"
-            android:layout_width="360dp"
+            android:layout_width="340dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/input"
-            android:hint="Drug Security"
             android:enabled="false"
+            android:hint="Drug Security"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
 
         <EditText
             android:id="@+id/drugType"
-            android:layout_width="360dp"
+            android:layout_width="340dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/input"
@@ -104,7 +104,7 @@
 
         <EditText
             android:id="@+id/drugExpiry"
-            android:layout_width="360dp"
+            android:layout_width="340dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/input"
@@ -116,7 +116,7 @@
 
         <Button
             android:id="@+id/registerDrugBtn"
-            android:layout_width="360dp"
+            android:layout_width="340dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="28dp"

@@ -15,13 +15,24 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="83dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="60dp"
             android:text="Disposed"
             android:textColor="@color/mediphix_darkblue"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/filterDDL"
+            android:layout_width="46dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/disposed_filter_sort_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.24"
+            app:layout_constraintStart_toEndOf="@+id/textView11"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -33,20 +44,9 @@
             android:minHeight="0dp"
             android:src="@drawable/ic_filter"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintHorizontal_bias="0.226"
             app:layout_constraintStart_toEndOf="@+id/textView11"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
-
-        <Spinner
-            android:id="@+id/filterDDL"
-            android:layout_width="46dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:entries="@array/disposed_filter_sort_options"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.448"
-            app:layout_constraintStart_toEndOf="@+id/textView11"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView11"
