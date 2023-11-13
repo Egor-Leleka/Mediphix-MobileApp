@@ -36,7 +36,7 @@ class DisposedDrugsAdapter (private var disposedDrugList: MutableList<DisposedDr
         holder.drugType.text = "TYPE: " + currentDrugInfo.drugType.toString().uppercase()
         holder.drugId.text = "ID: " + currentDrugInfo.id.toString().uppercase()
         holder.drugExpiry.text = "EXPIRED: " + currentDrugInfo.expiryDate.toString().uppercase()
-        holder.nurseName.text = "REMOVED BY: " + currentDrugInfo.nurseName.toString().uppercase()
+        holder.nurseName.text = "NURSE: " + currentDrugInfo.nurseName.toString().uppercase()
     }
 
     fun updateList(newList: MutableList<DisposedDrug>) {

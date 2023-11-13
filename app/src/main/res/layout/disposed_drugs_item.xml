@@ -65,7 +65,7 @@
             android:paddingTop="2dp"
             android:paddingBottom="3dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="5dp"
             android:textColor="@color/black"
             android:textSize="14sp"
             tools:text="Drug Expiry" />
@@ -81,7 +81,7 @@
             android:paddingTop="2dp"
             android:paddingBottom="3dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="5dp"
             android:textColor="@color/black"
             android:textSize="14sp"
             tools:text="Nurse Name" />

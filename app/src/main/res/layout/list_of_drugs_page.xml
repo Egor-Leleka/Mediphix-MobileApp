@@ -45,7 +45,7 @@
             android:layout_width="46dp"
             android:layout_height="50dp"
             android:layout_marginTop="28dp"
-            android:entries="@array/disposed_filter_sort_options"
+            android:entries="@array/filter_sort_options"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.326"
             app:layout_constraintStart_toEndOf="@+id/textView10"
